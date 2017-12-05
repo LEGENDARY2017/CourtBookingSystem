@@ -16,6 +16,27 @@
         <servlet-name>courtAdminServlet</servlet-name>
         <servlet-class>servlet.manageCourt.courtAdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserList</servlet-name>
+        <servlet-class>servlet.manageUser.userListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>servlet.manageUser.CreateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>servlet.manageUser.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>servlet.manageUser.EditUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfileUser</servlet-name>
+        <servlet-class>servlet.manageUser.ProfileUserServlet</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -31,6 +52,26 @@
     <servlet-mapping>
         <servlet-name>courtAdminServlet</servlet-name>
         <url-pattern>/courtAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/CreateUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/DeleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/EditUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileUser</servlet-name>
+        <url-pattern>/ProfileUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserList</servlet-name>
+        <url-pattern>/UserList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
