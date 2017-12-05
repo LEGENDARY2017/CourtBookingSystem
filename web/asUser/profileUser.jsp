@@ -29,7 +29,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                            <A href="editprofile.jsp" >Edit Profile</A>
+                            <A href="userEditProfile.jsp" >Edit Profile</A>
 
                             <A href="edit.html" >Logout</A>
                             <br>
