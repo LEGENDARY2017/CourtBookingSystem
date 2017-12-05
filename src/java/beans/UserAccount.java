@@ -9,7 +9,7 @@ package beans;
  *
  * @author yanaramli22
  */
-public class User {
+public class UserAccount {
 
     private String name;
     private String matricNo;
@@ -19,11 +19,11 @@ public class User {
     private String email;
     private String contactNo;
 
-    public User() {
+    public UserAccount() {
 
     }
 
-    public User(String name, String matricNo, String username, String faculty, String password, String email, String contactNo) {
+    public UserAccount(String name, String matricNo, String username, String faculty, String password, String email, String contactNo) {
         this.name = name;
         this.matricNo = matricNo;
         this.username = username;

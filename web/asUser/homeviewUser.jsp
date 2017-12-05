@@ -30,7 +30,7 @@
 
         <!-- Wrapper -->
         <div id="page-wrapper">
-
+            <jsp:include page="headerUser.jsp"></jsp:include>
             
             <!--Banner-->
             <section id="banner">

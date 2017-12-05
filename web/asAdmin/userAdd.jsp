@@ -56,13 +56,13 @@
                     <div class="inner">
 
                         <section>
-                            <form action="/" method="post">
+                            <form action="${pageContext.request.contextPath}/CreateUser" method="post">
                                 <div class="row uniform">    
                                     <div class="4u 12u$(xsmall)">
                                         <input type="text" name="name" id="name" placeholder="Name"/>
                                     </div>
                                     <div class="4u 12u$(xsmall)">
-                                        <input type="text" name="matricno" id="matricno" placeholder="Matric No"/>
+                                        <input type="text" name="matricNo" id="matricNo" placeholder="Matric No"/>
                                     </div>
                                     <div class="4u 12u$(xsmall)">
                                         <input type="text" name="faculty" id="faculty" placeholder="Faculty"/>
@@ -77,7 +77,7 @@
                                         <input type="text" name="password" id="password" placeholder="Password"/>
                                     </div>
                                     <div class="4u 12u$(xsmall)">
-                                        <input type="text" name="phone" id="phone" placeholder="Contact Number"/>
+                                        <input type="text" name="contactNo" id="contactNo" placeholder="Contact Number"/>
                                     </div>
                                     
                                     

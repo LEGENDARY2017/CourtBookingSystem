@@ -8,9 +8,9 @@ package utils;
 
 /**
  *
- * @author yanaramli22
+ * @author amyliaahamad
  */
-import beans.CourtDetail;
+
 import beans.UserAccount;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,8 +19,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBUtils {
-    
+public class DBUtils_user {
+ 
     public static UserAccount findUser(Connection conn, //
             String username, String password) throws SQLException {
  
@@ -61,7 +61,29 @@ public class DBUtils {
  
         ResultSet rs = pstm.executeQuery();
  
-        if (rs.next()) {
+        while (rs.next()) {
+            String password = rs.getString("password");
+            String name = rs.getString("name");
+            String matricNo = rs.getString("matricNo");
+            String faculty = rs.getString("faculty");
+            String email = rs.getString("email");
+            String contactNo = rs.getString("contactNo");
+            UserAccount user = new UserAccount(username,password,name,matricNo,faculty,email,contactNo);
+            
+            return user;
+        }
+        return null;
+    }
+    
+    public static List<UserAccount> queryUser(Connection conn) throws SQLException {
+        String sql = "Select * from user a ";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        ResultSet rs = pstm.executeQuery();
+        List<UserAccount> list = new ArrayList<UserAccount>();
+        while (rs.next()) {
+            String username = rs.getString("username");
             String password = rs.getString("password");
             String name = rs.getString("name");
             String matricNo = rs.getString("matricNo");
@@ -76,70 +98,52 @@ public class DBUtils {
             user.setFaculty(faculty);
             user.setEmail(email);
             user.setContactNo(contactNo);
-            return user;
-        }
-        return null;
-    }
-
-    public static List<CourtDetail> queryCourt(Connection conn) throws SQLException {
-        String sql = "Select a.courtid, a.courtType, a.date, a.timeslot, a.staffid from court a ";
- 
-        PreparedStatement pstm = conn.prepareStatement(sql);
- 
-        ResultSet rs = pstm.executeQuery();
-        List<CourtDetail> list = new ArrayList<CourtDetail>();
-        while (rs.next()) {
-            String courtid = rs.getString("courtid");
-            String courtType = rs.getString("courtType");
-            String timeslot = rs.getString("timeslot");
-            
-            CourtDetail court = new CourtDetail();
-            court.setCourtid(courtid);
-            court.setCourtType(courtType);
-            court.setTimeslot(timeslot);
-                       
-            list.add(court);
+            list.add(user);
         }
         return list;
     }
- 
-     public static CourtDetail findCourt(Connection conn, String courtid) throws SQLException {
-        String sql = "Select a.courtid, a.courtType, a.timeslot, from court a where a.courtid=?";
+
+     
+    public static void updateUser(Connection conn, UserAccount user) throws SQLException {
+        String sql = "Update user set password =?, email =?, ContactNo=? where uesrname=? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
-        pstm.setString(1, courtid);
  
-        ResultSet rs = pstm.executeQuery();
- 
-        while (rs.next()) {
-            String courtType = rs.getString("courtType");
-            CourtDetail court = new CourtDetail(courtid, courtType);
-            return court;
-        }
-        return null;
+        pstm.setString(1, user.getPassword());
+        pstm.setString(2, user.getEmail());
+        pstm.setString(3, user.getContactNo());
+        pstm.setString(4, user.getUsername());
+        pstm.executeUpdate();
     }
  
-
-    public static void insertCourt(Connection conn, CourtDetail court) throws SQLException {
-        String sql = "Insert into court(courtid, courtType) values (?,?)";
+    public static void insertUser(Connection conn, UserAccount user) throws SQLException {
+        String sql = "Insert into user(username,password,name,matricNo,faculty,email,contactNo) values (?,?,?,?,?,?,?)";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
-        pstm.setString(1, court.getCourtid());
-        pstm.setString(2, court.getCourtType());
+        pstm.setString(1, user.getUsername());
+        pstm.setString(2, user.getPassword());
+        pstm.setString(3, user.getName());
+        pstm.setString(4, user.getMatricNo());
+        pstm.setString(5, user.getFaculty());
+        pstm.setString(6, user.getEmail());
+        pstm.setString(7, user.getContactNo());
+        
          
         pstm.executeUpdate();
     }
  
-    public static void deleteCourt(Connection conn, String courtid) throws SQLException {
-        String sql = "Delete From court where courtid= ?";
+    public static void deleteUser(Connection conn, String username) throws SQLException {
+        String sql = "Delete from user where username= ?";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
-        pstm.setString(1, courtid);
+        pstm.setString(1, username);
  
         pstm.executeUpdate();
     }
- 
+
+  
+    
     
 }
