@@ -29,7 +29,9 @@ import java.io.PrintWriter;
 import utils.DBUtils_user;
 import utils.MyUtils_user;
 import utils.MyUtils;
- 
+
+
+@WebServlet(urlPatterns = { "/UserList" })
 public class userListServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  

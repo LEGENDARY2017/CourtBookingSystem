@@ -22,7 +22,7 @@ import java.util.List;
 
 public class DBUtils_user {
  
-    public static UserAccount findUser(Connection conn, //
+    /*public static UserAccount findUser(Connection conn, //
             String username, String password) throws SQLException {
  
         String sql = "Select * from user a " //
@@ -74,7 +74,7 @@ public class DBUtils_user {
             return user;
         }
         return null;
-    }
+    }*/
     
     
 

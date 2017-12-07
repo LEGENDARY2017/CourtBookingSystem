@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
  
 import beans.UserAccount;
-import utils.DBUtils_user;
-import utils.MyUtils_user;
+import utils.DBUtils;
+import utils.MyUtils;
  
 @WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
 public class CookieFilter implements Filter {
@@ -45,7 +45,7 @@ public class CookieFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
  
-        UserAccount userInSession = MyUtils_user.getLoginedUser(session);
+        UserAccount userInSession = MyUtils.getLoginedUser(session);
         // 
         if (userInSession != null) {
             session.setAttribute("COOKIE_CHECKED", "CHECKED");
@@ -54,15 +54,15 @@ public class CookieFilter implements Filter {
         }
  
         // Connection was created in JDBCFilter.
-        Connection conn = MyUtils_user.getStoredConnection(request);
+        Connection conn = MyUtils.getStoredConnection(request);
  
         // Flag check cookie
         String checked = (String) session.getAttribute("COOKIE_CHECKED");
         if (checked == null && conn != null) {
-            String username = MyUtils_user.getUserNameInCookie(req);
+            String username = MyUtils.getUserNameInCookie(req);
             try {
-                UserAccount user = DBUtils_user.findUser(conn, username);
-                MyUtils_user.storeLoginedUser(session, user);
+                UserAccount user = DBUtils.findUser(conn, username);
+                MyUtils.storeLoginedUser(session, user);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

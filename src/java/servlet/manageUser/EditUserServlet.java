@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  
 import beans.UserAccount;
 import utils.DBUtils_user;
-import utils.MyUtils_user;
+import utils.DBUtils;
+import utils.MyUtils;
  
 public class EditUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -31,7 +32,7 @@ public class EditUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Connection conn = MyUtils_user.getStoredConnection(request);
+        Connection conn = MyUtils.getStoredConnection(request);
  
         String username = (String) request.getParameter("username");
  
@@ -39,10 +40,10 @@ public class EditUserServlet extends HttpServlet {
  
         String errorString = null;
  
-        try {
-            user = DBUtils_user.findUser(conn, username);
-        } catch (SQLException e) {
-            e.printStackTrace();
+       try {
+       user = DBUtils.findUser(conn, username);
+       } catch (SQLException e) {
+         e.printStackTrace();
             errorString = e.getMessage();
         }
  
@@ -69,7 +70,7 @@ public class EditUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Connection conn = MyUtils_user.getStoredConnection(request);
+        Connection conn = MyUtils.getStoredConnection(request);
  
        String username = (String) request.getParameter("username");
         String password = (String) request.getParameter("password");
