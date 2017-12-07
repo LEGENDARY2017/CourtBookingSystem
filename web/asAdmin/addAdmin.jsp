@@ -56,22 +56,22 @@
                     <div class="inner">
 
                         <section>
-                            <form action="../CreateAdminServlet" method="post">
+                            <form action="${pageContext.request.contextPath}/createAdmin" method="post">
                                 <div class="row uniform">  
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="staffid" id="staffid" placeholder="Staff ID"/>
+                                        <input type="text" name="staffid" id="staffid" placeholder="Staff ID" value="${product.staffid}"/>
                                     </div>  
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="name" id="name" placeholder="Name"/>
+                                        <input type="text" name="name" id="name" placeholder="Name" value="${product.name}"/>
                                     </div>                                    
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="password" id="password" placeholder="Password"/>
+                                        <input type="text" name="password" id="password" placeholder="Password" value="${product.password}"/>
                                     </div>                                    
                                     <div class="12u 12u$(xsmall)">
-                                        <input type="email" name="email" id="email" placeholder="Email"/>
+                                        <input type="email" name="email" id="email" placeholder="Email" value="${product.email}"/>
                                     </div>
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="phone" id="phone" placeholder="Contact Number"/>
+                                        <input type="text" name="phone" id="phone" placeholder="Contact Number" value="${product.contactNo}"/>
                                     </div>
                                    
                                     <div class="12u 12u$">

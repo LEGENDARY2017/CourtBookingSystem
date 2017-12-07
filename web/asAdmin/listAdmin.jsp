@@ -57,9 +57,9 @@
                                         </tr>
 
                                     </thead>
-                                     <c:forEach items="${adminList}" var="admin" >
+                                <c:forEach items="${adminList}" var="admin" >
                                     <tbody>
-                                                             
+
                                         <tr>
                                             <td>${admin.staffid}</td>
                                             <td>${admin.name}</td>
@@ -75,16 +75,13 @@
                                                 </a>
                                             </td>-->
                                         </tr>
-                                    
 
-                                </tbody>
+
+                                    </tbody>
                                 </c:forEach>
                             </table>
 
-
-                            <a href="addAdmin.jsp">
-                                <img src="images/plus.png" alt/>Add Admin
-                            </a>
+                            <img src="images/plus.png" alt/><a href="createAdmin">Add Admin </a>                       
 
                         </div>
 

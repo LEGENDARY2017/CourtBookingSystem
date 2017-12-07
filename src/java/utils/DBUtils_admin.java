@@ -110,26 +110,24 @@ public class DBUtils_admin {
         pstm.setString(3, user.getContactNo());
         pstm.setString(4, user.getUsername());
         pstm.executeUpdate();
-    }
+    }*/
  
-    public static void insertUser(Connection conn, UserAccount user) throws SQLException {
-        String sql = "Insert into user(username,password,name,matricNo,faculty,email,contactNo) values (?,?,?,?,?,?,?)";
+    public static void insertAdmin(Connection conn, Admin admin) throws SQLException {
+        String sql = "Insert into admin(staffid, name, password, email, contactNo) values (?,?,?,?,?)";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
-        pstm.setString(1, user.getUsername());
-        pstm.setString(2, user.getPassword());
-        pstm.setString(3, user.getName());
-        pstm.setString(4, user.getMatricNo());
-        pstm.setString(5, user.getFaculty());
-        pstm.setString(6, user.getEmail());
-        pstm.setString(7, user.getContactNo());
+        pstm.setString(1, admin.getStaffid());
+        pstm.setString(2, admin.getName());
+        pstm.setString(3, admin.getPassword());
+        pstm.setString(4, admin.getEmail());
+        pstm.setString(5, admin.getContactNo());
         
          
         pstm.executeUpdate();
     }
  
-    public static void deleteUser(Connection conn, String username) throws SQLException {
+    /*public static void deleteUser(Connection conn, String username) throws SQLException {
         String sql = "Delete from user where username= ?";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
