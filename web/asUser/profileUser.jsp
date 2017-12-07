@@ -53,21 +53,21 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>Name:</td>
-                                                        <td></td>
+                                                        <td>${user.name}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Matric Number:</td>
-                                                        <td></td>
+                                                        <td>${user.matricNo}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Email:</td>
-                                                        <td></td>
+                                                        <td>${user.email}</td>
                                                     </tr>
 
 
                                                     <tr>
                                                         <td>Contact Number:</td>
-                                                        <td></td>
+                                                        <td>${user.contactNo}</td>
                                                     </tr>
 
 

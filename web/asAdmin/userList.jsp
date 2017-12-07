@@ -58,7 +58,7 @@
 
                                     </thead>
                                     <tbody>
-                                         <c:forEach items="${userList}" var="user" >                                    
+                                         <c:forEach items="${UserList}" var="user" >                                    
                                     <tr>
                                         <td>${user.username}</td>
                                         <td>${user.name}</td>
@@ -79,7 +79,7 @@
 
 
                             <a href="userAdd.jsp">
-                                <img src="images/plus.png" alt/>Add User
+                                <img src="../images/plus.png" alt/>Add User
                             </a>
 
                         </div>
