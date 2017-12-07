@@ -46,7 +46,7 @@
                                     </span>
                                     <br>
                                     <ul class="actions">
-                                        <li><a href="listAdmin.jsp" class="button special">Manage Admin</a></li>                                       
+                                        <li><a href="${pageContext.request.contextPath}/adminList" class="button special">Manage Admin</a></li>                                       
                                     </ul>
                                 </li>
                                 <li>

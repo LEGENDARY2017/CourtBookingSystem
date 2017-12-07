@@ -4,6 +4,7 @@
     Author     : yanaramli22
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
@@ -27,7 +28,7 @@
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
 
-       
+
     </head>
 
 
@@ -56,23 +57,28 @@
                                         </tr>
 
                                     </thead>
+                                     <c:forEach items="${adminList}" var="admin" >
                                     <tbody>
-                                         <c:forEach items="${adminList}" var="admin" >                                    
-                                    <tr>
-                                        <td>${admin.staffid}</td>
-                                        <td>${admin.name}</td>
-                                        <td>${admin.email}</td>
-                                        <td>${admin.contactNo}</td>
-                                        <td>
-                                            <a href="../EditCourtServlet">
-                                                <img src="../images/pencil-edit-button.png" alt/>
-                                            </a>
-                                            <a href="../deleteCourtServlet">
-                                                <img src="../images/rubbish-bin.png" alt/>
-                                            </a>
-                                        </td>
-                                       
+                                                             
+                                        <tr>
+                                            <td>${admin.staffid}</td>
+                                            <td>${admin.name}</td>
+                                            <td>${admin.email}</td>
+                                            <td>${admin.contactNo}</td>
+
+                                            <!--<td>
+                                                <a href="../EditCourtServlet">
+                                                    <img src="../images/pencil-edit-button.png" alt/>
+                                                </a>
+                                                <a href="../deleteCourtServlet">
+                                                    <img src="../images/rubbish-bin.png" alt/>
+                                                </a>
+                                            </td>-->
+                                        </tr>
+                                    
+
                                 </tbody>
+                                </c:forEach>
                             </table>
 
 

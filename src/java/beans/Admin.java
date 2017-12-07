@@ -29,6 +29,10 @@ public class Admin {
         this.contactNo = contactNo;
     }
 
+    public Admin(String staffid, String name, String email, String contactNo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getStaffid() {
         return staffid;
     }
