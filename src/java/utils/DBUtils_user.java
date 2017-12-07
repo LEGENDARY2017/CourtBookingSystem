@@ -11,6 +11,7 @@ package utils;
  * @author amyliaahamad
  */
 
+import beans.Admin;
 import beans.UserAccount;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -75,13 +76,15 @@ public class DBUtils_user {
         return null;
     }
     
+    
+
     public static List<UserAccount> queryUser(Connection conn) throws SQLException {
-        String sql = "Select * from user a ";
+        String sql = "Select * from user";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
         ResultSet rs = pstm.executeQuery();
-        List<UserAccount> list = new ArrayList<UserAccount>();
+        List<UserAccount> list = new ArrayList<>();
         while (rs.next()) {
             String username = rs.getString("username");
             String password = rs.getString("password");

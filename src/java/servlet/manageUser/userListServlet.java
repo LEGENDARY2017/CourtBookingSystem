@@ -12,20 +12,23 @@ package servlet.manageUser;
  */
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
  
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.SQLException;
  
 import beans.UserAccount;
+import java.io.PrintWriter;
 import utils.DBUtils_user;
 import utils.MyUtils_user;
+import utils.MyUtils;
  
 public class userListServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -37,26 +40,26 @@ public class userListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Connection conn = MyUtils_user.getStoredConnection(request);
-        // Check User has logged on
-        UserAccount loginedUser = MyUtils_user.getLoginedUser(session);
+        Connection conn = MyUtils.getStoredConnection(request);
  
-        // Not logged in
-        if (loginedUser == null) {
-            // Redirect to login page.
-            response.sendRedirect(request.getContextPath() + "/loginServlet");
-            return;
+        String errorString = null;
+        List<UserAccount> list = null;
+        try {
+            list = DBUtils_user.queryUser(conn);
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
+            errorString = e.getMessage();
+            PrintWriter out = response.getWriter();
+            out.println("<p style='color: red;'>"+errorString+"</p>");
         }
-        // Store info to the request attribute before forwarding.
-        request.setAttribute("user", loginedUser);
- 
-        // If the user has logged in, then forward to the page
-        // /WEB-INF/views/userInfoView.jsp
-        RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/asUser/profileUser.jsp");
+        // Store info in request attribute, before forward to views
+        request.setAttribute("errorString", errorString);
+        request.setAttribute("UserList", list);
+         
+        // Forward to /WEB-INF/views/productListView.jsp
+        RequestDispatcher dispatcher = request.getServletContext()
+                .getRequestDispatcher("/asAdmin/userList.jsp");
         dispatcher.forward(request, response);
- 
     }
  
     @Override

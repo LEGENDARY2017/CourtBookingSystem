@@ -27,7 +27,7 @@
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
 
-       
+
     </head>
 
 
@@ -50,6 +50,7 @@
                                     <thead>
                                         <tr>
                                             <th>Username</th>
+                                            <th>Password</th>
                                             <th>Full Name</th>
                                             <th>Matric Number</th>
                                             <th>Faculty</th>
@@ -57,10 +58,15 @@
                                         </tr>
 
                                     </thead>
+                                    
+                                    
+                                        
+                                    <c:forEach items="${UserList}" var="admin" >
                                     <tbody>
-                                         <c:forEach items="${UserList}" var="user" >                                    
-                                    <tr>
-                                        <td>${user.username}</td>
+
+                                        <tr>
+                                            <td>${user.username}</td>
+                                        <td>${user.password}</td>
                                         <td>${user.name}</td>
                                         <td>${user.matricNo}</td>
                                         <td>${adusermin.faculty}</td>
@@ -73,19 +79,22 @@
                                                 <img src="../images/rubbish-bin.png" alt/>
                                             </a>
                                         </td>
-                                       
-                                </tbody>
-                            </table>
+                                        </tr>
 
 
-                            <a href="userAdd.jsp">
-                                <img src="../images/plus.png" alt/>Add User
-                            </a>
+                                    </tbody>
+                                </c:forEach>
+                                        </table>
 
-                        </div>
 
-                    </section>
-                </div>
-            </section>
-    </body>
-</html>
+                                    <a href="userAdd.jsp">
+                                        <img src="../images/plus.png" alt/>Add User
+                                    </a>
+
+                                    </div>
+
+                                    </section>
+                                    </div>
+                                    </section>
+                                    </body>
+                                    </html>
