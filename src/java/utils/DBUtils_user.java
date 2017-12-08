@@ -87,7 +87,6 @@ public class DBUtils_user {
         List<UserAccount> list = new ArrayList<>();
         while (rs.next()) {
             String username = rs.getString("username");
-            String password = rs.getString("password");
             String name = rs.getString("name");
             String matricNo = rs.getString("matricNo");
             String faculty = rs.getString("faculty");
@@ -95,7 +94,6 @@ public class DBUtils_user {
             String contactNo = rs.getString("contactNo");
             UserAccount user = new UserAccount();
             user.setUsername(username);
-            user.setPassword(password);
             user.setName(name);
             user.setMatricNo(matricNo);
             user.setFaculty(faculty);

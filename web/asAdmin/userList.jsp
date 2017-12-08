@@ -4,6 +4,7 @@
     Author     : yanaramli22
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
@@ -31,7 +32,6 @@
     </head>
 
 
-
     <body class="landing">
 
         <jsp:include page="headerAdmin.jsp"></jsp:include>
@@ -50,10 +50,10 @@
                                     <thead>
                                         <tr>
                                             <th>Username</th>
-                                            <th>Password</th>
                                             <th>Full Name</th>
                                             <th>Matric Number</th>
                                             <th>Faculty</th>
+                                            <th>Email</th>
                                             <th>Phone Number</th>
                                         </tr>
 
@@ -61,15 +61,15 @@
                                     
                                     
                                         
-                                    <c:forEach items="${UserList}" var="admin" >
+                                    <c:forEach items="${UserList}" var="user" >
                                     <tbody>
 
                                         <tr>
-                                            <td>${user.username}</td>
-                                        <td>${user.password}</td>
+                                        <td>${user.username}</td>
                                         <td>${user.name}</td>
                                         <td>${user.matricNo}</td>
-                                        <td>${adusermin.faculty}</td>
+                                        <td>${user.faculty}</td>
+                                        <td>${user.email}</td>
                                         <td>${user.contactNo}</td>
                                         <td>
                                             <a href="../EditUserServlet">

@@ -11,11 +11,11 @@ package beans;
  */
 public class UserAccount {
 
-    private String name;
-    private String matricNo;
     private String username;
-    private String faculty;
     private String password;
+    private String name;
+    private String matricNo; 
+    private String faculty;
     private String email;
     private String contactNo;
 
@@ -23,12 +23,13 @@ public class UserAccount {
 
     }
 
-    public UserAccount(String name, String matricNo, String username, String faculty, String password, String email, String contactNo) {
+    public UserAccount(String username, String password, String name, String matricNo,  String faculty,String email, String contactNo) {
+        
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.matricNo = matricNo;
-        this.username = username;
         this.faculty = faculty;
-        this.password = password;
         this.email = email;
         this.contactNo = contactNo;
     }

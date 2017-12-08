@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 import beans.UserAccount;
 import java.io.PrintWriter;
 import utils.DBUtils_user;
-import utils.MyUtils_user;
 import utils.MyUtils;
 
 
@@ -49,7 +48,6 @@ public class userListServlet extends HttpServlet {
         try {
             list = DBUtils_user.queryUser(conn);
         } catch (SQLException | NullPointerException e) {
-            e.printStackTrace();
             errorString = e.getMessage();
             PrintWriter out = response.getWriter();
             out.println("<p style='color: red;'>"+errorString+"</p>");
