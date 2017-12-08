@@ -23,6 +23,8 @@ import beans.UserAccount;
  *
  * @author amyliaahamad
  */
+
+@WebServlet(urlPatterns = { "/CreateUser" })
 public class CreateUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  

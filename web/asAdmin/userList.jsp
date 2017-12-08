@@ -59,7 +59,7 @@
                                         </tr>
 
                                     </thead>
-                                <c:forEach items="${ProfileUser}" var="user" >
+                                <c:forEach items="${UserList}" var="user" >
                                     <tbody>
 
                                         <tr>
