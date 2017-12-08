@@ -5,12 +5,6 @@
  */
 package servlet.manageUser;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -45,9 +39,11 @@ public class userListServlet extends HttpServlet {
  
         String errorString = null;
         List<UserAccount> list = null;
+        
         try {
             list = DBUtils_user.queryUser(conn);
         } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
             errorString = e.getMessage();
             PrintWriter out = response.getWriter();
             out.println("<p style='color: red;'>"+errorString+"</p>");

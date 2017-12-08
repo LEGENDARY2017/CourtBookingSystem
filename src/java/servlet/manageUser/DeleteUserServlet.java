@@ -6,6 +6,7 @@
 package servlet.manageUser;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
  
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 import utils.DBUtils_user;
-import utils.MyUtils_user;
+import utils.MyUtils;
  
 public class DeleteUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -26,10 +27,10 @@ public class DeleteUserServlet extends HttpServlet {
         super();
     }
  
-    @Override
+     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Connection conn = MyUtils_user.getStoredConnection(request);
+        Connection conn = MyUtils.getStoredConnection(request);
  
         String username = (String) request.getParameter("username");
  
@@ -37,10 +38,12 @@ public class DeleteUserServlet extends HttpServlet {
  
         try {
             DBUtils_user.deleteUser(conn, username);
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             errorString = e.getMessage();
-        } 
+            PrintWriter out = response.getWriter();
+            out.println("<p style='color: red;'>"+errorString+"</p>");
+        }
          
         // If has an error, redirecte to the error page.
         if (errorString != null) {
@@ -48,7 +51,7 @@ public class DeleteUserServlet extends HttpServlet {
             request.setAttribute("errorString", errorString);
             // 
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/asAdmin/homeviewAdmin.jsp");
+                    .getRequestDispatcher("/asAdmin/deleteUserError.jsp");
             dispatcher.forward(request, response);
         }
         // If everything nice.

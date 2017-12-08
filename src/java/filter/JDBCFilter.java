@@ -21,7 +21,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
  
 import conn.ConnectionUtils;
-import utils.MyUtils_user;
+import utils.MyUtils;
 
 /**
  *
@@ -102,7 +102,7 @@ public class JDBCFilter implements Filter {
  
                 // Store Connection object in attribute of request.
                 //put all myutils !
-                MyUtils_user.storeConnection(request, conn);
+                MyUtils.storeConnection(request, conn);
  
                 // Allow request to go forward
                 // (Go to the next filter or target)

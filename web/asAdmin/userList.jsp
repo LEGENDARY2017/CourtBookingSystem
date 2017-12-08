@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listAdmin.jsp
+    Document   : userList.jsp
     Created on : Nov 28, 2017, 9:13:21 AM
     Author     : yanaramli22
 --%>
@@ -32,6 +32,7 @@
     </head>
 
 
+
     <body class="landing">
 
         <jsp:include page="headerAdmin.jsp"></jsp:include>
@@ -51,50 +52,46 @@
                                         <tr>
                                             <th>Username</th>
                                             <th>Full Name</th>
-                                            <th>Matric Number</th>
+                                            <th>Matric No</th>
                                             <th>Faculty</th>
                                             <th>Email</th>
-                                            <th>Phone Number</th>
+                                            <th>Contact No</th>
                                         </tr>
 
                                     </thead>
-                                    
-                                    
-                                        
-                                    <c:forEach items="${UserList}" var="user" >
+                                <c:forEach items="${ProfileUser}" var="user" >
                                     <tbody>
 
                                         <tr>
-                                        <td>${user.username}</td>
-                                        <td>${user.name}</td>
-                                        <td>${user.matricNo}</td>
-                                        <td>${user.faculty}</td>
-                                        <td>${user.email}</td>
-                                        <td>${user.contactNo}</td>
-                                        <td>
-                                            <a href="../EditUserServlet">
-                                                <img src="../images/pencil-edit-button.png" alt/>
-                                            </a>
-                                            <a href="../DeleteUserServlet">
-                                                <img src="../images/rubbish-bin.png" alt/>
-                                            </a>
-                                        </td>
+                                            <td>${user.username}</td>
+                                            <td>${user.name}</td>
+                                            <td>${user.matricNo}</td>
+                                            <td>${user.faculty}</td>
+                                            <td>${user.email}</td>
+                                            <td>${user.contactNo}</td>
+
+                                            <td>
+                                                <a href="${pageContext.request.contextPath}/EditUser" >
+                                                    <img src="../images/plus.png" alt/>
+                                                </a>
+                                                <a href="${pageContext.request.contextPath}/DeleteUser" >
+                                                    <img src="../images/plus.png" alt/>
+                                                </a>
+                                                    <a href="deleteUser?username=${user.username}">Delete</a>
+                                            </td>
                                         </tr>
 
 
                                     </tbody>
                                 </c:forEach>
-                                        </table>
+                            </table>
 
+                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/CreateUser" >Add User </a>                       
 
-                                    <a href="userAdd.jsp">
-                                        <img src="../images/plus.png" alt/>Add User
-                                    </a>
+                        </div>
 
-                                    </div>
-
-                                    </section>
-                                    </div>
-                                    </section>
-                                    </body>
-                                    </html>
+                    </section>
+                </div>
+            </section>
+    </body>
+</html>

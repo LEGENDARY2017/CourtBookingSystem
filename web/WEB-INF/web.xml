@@ -29,10 +29,7 @@
         <servlet-name>EditUser</servlet-name>
         <servlet-class>servlet.manageUser.EditUserServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ProfileUser</servlet-name>
-        <servlet-class>servlet.manageUser.ProfileUserServlet</servlet-class>
-    </servlet>
+    
     
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
@@ -61,10 +58,6 @@
     <servlet-mapping>
         <servlet-name>EditUser</servlet-name>
         <url-pattern>/EditUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProfileUser</servlet-name>
-        <url-pattern>/ProfileUser</url-pattern>
     </servlet-mapping>
     
     <session-config>

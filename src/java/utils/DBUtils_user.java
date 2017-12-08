@@ -10,8 +10,6 @@ package utils;
  *
  * @author amyliaahamad
  */
-
-import beans.Admin;
 import beans.UserAccount;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -87,6 +85,7 @@ public class DBUtils_user {
         List<UserAccount> list = new ArrayList<>();
         while (rs.next()) {
             String username = rs.getString("username");
+            String password = rs.getString("password");
             String name = rs.getString("name");
             String matricNo = rs.getString("matricNo");
             String faculty = rs.getString("faculty");
@@ -94,6 +93,7 @@ public class DBUtils_user {
             String contactNo = rs.getString("contactNo");
             UserAccount user = new UserAccount();
             user.setUsername(username);
+            user.setPassword(password);
             user.setName(name);
             user.setMatricNo(matricNo);
             user.setFaculty(faculty);
@@ -134,8 +134,8 @@ public class DBUtils_user {
         pstm.executeUpdate();
     }
  
-    public static void deleteUser(Connection conn, String username) throws SQLException {
-        String sql = "Delete from user where username= ?";
+     public static void deleteUser(Connection conn, String username) throws SQLException {
+        String sql = "Delete From user where username= ?";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
@@ -143,8 +143,9 @@ public class DBUtils_user {
  
         pstm.executeUpdate();
     }
+ 
+}
 
   
     
-    
-}
+   

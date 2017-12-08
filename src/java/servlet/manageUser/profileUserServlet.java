@@ -25,8 +25,10 @@ import java.sql.SQLException;
  
 import beans.UserAccount;
 import utils.DBUtils_user;
-import utils.MyUtils_user;
+import utils.MyUtils;
  
+
+@WebServlet(urlPatterns = { "/ProfileUser" })
 public class profileUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
@@ -38,16 +40,10 @@ public class profileUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Connection conn = MyUtils_user.getStoredConnection(request);
+        Connection conn = MyUtils.getStoredConnection(request);
         // Check User has logged on
-        UserAccount loginedUser = MyUtils_user.getLoginedUser(session);
+        UserAccount loginedUser = MyUtils.getLoginedUser(session);
  
-        // Not logged in
-        if (loginedUser == null) {
-            // Redirect to login page.
-            response.sendRedirect(request.getContextPath() + "/loginServlet");
-            return;
-        }
         // Store info to the request attribute before forwarding.
         request.setAttribute("user", loginedUser);
  

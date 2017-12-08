@@ -36,7 +36,6 @@
                
                 <div class="row">
      
-                <div class="col-md-3">
                 <div class="text-center">
                     <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
                     <h6>Upload a different photo...</h6>
@@ -45,30 +44,34 @@
                 </div>
                 </div>
                     
-              
-                 <div class="field half first">
+                <c:forEach items="${UserList}" var="user" >
+                <div class="field half first">
                     <label for="name" class="col-sm-sm">Name</label>
-                    <input type="text" name="name" id="name" class="col-sm-sm" value=""/>
+                    <input type="text" name="name" id="name" class="col-sm-sm" value="${user.name}"/>
                 </div>
                 
-       
+                <div class="field half first">
+                    <label for="name" class="col-sm-sm">Password</label>
+                    <input type="password" name="name" id="name" class="col-sm-sm" value="${user.password}"/>
+                </div>
+                
                 <div class="field half first">
                     <label for="date">Contact Number</label>
-                    <input type="text" name="contactNo" id="contactNo" value=""/>
+                    <input type="text" name="contactNo" id="contactNo" value="${user.contactNo}"/>
                 </div>
                
                 <div class="field half first">
                     <label for="desc">Email</label>
-                    <input type="text" name="email" id="email" value=""/>
+                    <input type="text" name="email" id="email" value="${user.email}"/>
                 </div>
-                    
+                <br>    
                 <div class="field half first">
                 <ul class="actions">
                     <li><input type="submit" value="Submit" class="special" /></li>
                     <li><input type="reset" value="Reset" /></li>
                 </ul
                 </div>
-                    
+                </c:forEach>    
                  
             </form>
         </section>

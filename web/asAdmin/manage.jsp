@@ -64,7 +64,7 @@
                                     </span>
                                     <br>
                                     <ul class="actions">
-                                        <li><a href="userList.jsp" class="button special">Manage User</a></li>                                       
+                                        <li><a href="${pageContext.request.contextPath}/UserList"  class="button special">Manage User</a></li>                                       
                                     </ul>
                                 </li>   
                                 <li>

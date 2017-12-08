@@ -46,14 +46,19 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src=".../images/female.png" class="img-circle img-responsive"> </div>
-
-
+                                        
+                                        
                                         <div class=" col-md-9 col-lg-9 "> 
+                                            <c:forEach items="${ProfileUser}" var="user" >
                                             <table class="table table-user-information">
                                                 <tbody>
                                                     <tr>
                                                         <td>Name:</td>
                                                         <td>${user.name}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Password:</td>
+                                                        <td>${user.password}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Matric Number:</td>
@@ -74,6 +79,7 @@
 
                                                 </tbody>
                                             </table>
+                                    </c:foreach>
                                             <ul class="actions">
                                                 <li><button type="button" onclick=>View <a href="#">History</a></button></li>
                                                 <li><button type="button" onclick=>View <a href="#">Booking</a></button></li>

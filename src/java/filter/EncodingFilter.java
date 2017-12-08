@@ -21,7 +21,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
  
 import conn.ConnectionUtils;
-import utils.MyUtils_user;
+import utils.MyUtils;
  
 @WebFilter(filterName = "encodingFilter", urlPatterns = { "/*" })
 public class EncodingFilter implements Filter {
