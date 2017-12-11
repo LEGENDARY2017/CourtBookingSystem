@@ -71,13 +71,8 @@
                                             <td>${user.contactNo}</td>
 
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/EditUser" >
-                                                    <img src="../images/plus.png" alt/>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/DeleteUser" >
-                                                    <img src="../images/plus.png" alt/>
-                                                </a>
-                                                    <a href="deleteUser?username=${user.username}">Delete</a>
+                                                    <a href="EditUser?username=${user.username}">Edit</a>
+                                                    <a href="DeleteUser?username=${user.username}">Delete</a>
                                             </td>
                                         </tr>
 

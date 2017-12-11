@@ -16,18 +16,6 @@
         <servlet-name>courtAdminServlet</servlet-name>
         <servlet-class>servlet.manageCourt.courtAdminServlet</servlet-class>
     </servlet>
-    
-    
-    <servlet>
-        <servlet-name>DeleteUser</servlet-name>
-        <servlet-class>servlet.manageUser.DeleteUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EditUser</servlet-name>
-        <servlet-class>servlet.manageUser.EditUserServlet</servlet-class>
-    </servlet>
-    
-    
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -43,15 +31,6 @@
     <servlet-mapping>
         <servlet-name>courtAdminServlet</servlet-name>
         <url-pattern>/courtAdminServlet</url-pattern>
-    </servlet-mapping>
-    
-    <servlet-mapping>
-        <servlet-name>DeleteUser</servlet-name>
-        <url-pattern>/DeleteUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditUser</servlet-name>
-        <url-pattern>/EditUser</url-pattern>
     </servlet-mapping>
     
     <session-config>

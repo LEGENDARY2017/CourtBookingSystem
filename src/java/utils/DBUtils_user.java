@@ -106,13 +106,13 @@ public class DBUtils_user {
 
      
     public static void updateUser(Connection conn, UserAccount user) throws SQLException {
-        String sql = "Update user set password =?, email =?, ContactNo=? where username=? ";
+        String sql = "Update user set password =?, contactNo=?, email=? where username=? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
         pstm.setString(1, user.getPassword());
-        pstm.setString(2, user.getEmail());
-        pstm.setString(3, user.getContactNo());
+        pstm.setString(2, user.getContactNo());
+        pstm.setString(3, user.getEmail());
         pstm.setString(4, user.getUsername());
         pstm.executeUpdate();
     }

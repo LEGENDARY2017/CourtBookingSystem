@@ -21,6 +21,7 @@ import utils.DBUtils_user;
 import utils.DBUtils;
 import utils.MyUtils;
  
+@WebServlet(urlPatterns = { "/EditUser" })
 public class EditUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
@@ -51,7 +52,7 @@ public class EditUserServlet extends HttpServlet {
         // The product does not exist to edit.
         // Redirect to productList page.
         if (errorString != null && user == null) {
-            response.sendRedirect(request.getServletPath() + "/ProfileUser");
+            response.sendRedirect(request.getServletPath() + "/UserList");
             return;
         }
  
@@ -60,7 +61,7 @@ public class EditUserServlet extends HttpServlet {
         request.setAttribute("user", user);
  
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/userEditProfile.jsp");
+                .getRequestDispatcher("/asAdmin/editUserDetail.jsp");
         dispatcher.forward(request, response);
  
     }
@@ -72,7 +73,7 @@ public class EditUserServlet extends HttpServlet {
             throws ServletException, IOException {
         Connection conn = MyUtils.getStoredConnection(request);
  
-       String username = (String) request.getParameter("username");
+        String username = (String) request.getParameter("username");
         String password = (String) request.getParameter("password");
         String name = (String) request.getParameter("name");
         String matricNo = (String) request.getParameter("matricNo");
@@ -92,18 +93,18 @@ public class EditUserServlet extends HttpServlet {
         }
         // Store infomation to request attribute, before forward to views.
         request.setAttribute("errorString", errorString);
-        request.setAttribute("uesr", user);
+        request.setAttribute("user", user);
  
         // If error, forward to Edit page.
         if (errorString != null) {
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/userEditProfile.jsp");
+                    .getRequestDispatcher("/asAdmin/editUserDetail.jsp");
             dispatcher.forward(request, response);
         }
         // If everything nice.
         // Redirect to the product listing page.
         else {
-            response.sendRedirect(request.getContextPath() + "/ProfileUser");
+            response.sendRedirect(request.getContextPath() + "/UserList");
         }
     }
  

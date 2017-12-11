@@ -19,7 +19,9 @@ import javax.servlet.http.HttpServletResponse;
  
 import utils.DBUtils_user;
 import utils.MyUtils;
- 
+
+
+@WebServlet(urlPatterns = { "/DeleteUser" })
 public class DeleteUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
