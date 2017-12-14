@@ -74,8 +74,7 @@ public class DBUtils_user {
         return null;
     }*/
     
-    
-
+  
     public static List<UserAccount> queryUser(Connection conn) throws SQLException {
         String sql = "Select * from user";
  

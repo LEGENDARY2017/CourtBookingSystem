@@ -7,31 +7,14 @@ package beans;
 
 /**
  *
- * @author yanaramli22
+ * @author amyliaahamad
  */
 public class Admin {
-
     private String staffid;
     private String name;
     private String password;
     private String email;
     private String contactNo;
-
-    public Admin() {
-
-    }
-
-    public Admin(String staffid, String name, String password, String email, String contactNo) {
-        this.staffid = staffid;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.contactNo = contactNo;
-    }
-
-    public Admin(String staffid, String name, String email, String contactNo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public String getStaffid() {
         return staffid;
@@ -72,5 +55,6 @@ public class Admin {
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
     }
-
+    
+    
 }

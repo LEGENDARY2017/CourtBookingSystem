@@ -5,14 +5,9 @@
  */
 package servlet.manageUser;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+import beans.UserAccount;
 import java.io.IOException;
- 
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,21 +15,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.SQLException;
- 
-import beans.UserAccount;
-import java.io.PrintWriter;
-import utils.DBUtils;
-import utils.DBUtils_user;
 import utils.MyUtils;
- 
 
-@WebServlet(urlPatterns = { "/ProfileUser" })
-public class profileUserServlet extends HttpServlet {
+/**
+ *
+ * @author amyliaahamad
+ */
+@WebServlet(urlPatterns = { "/HomeUser" })
+public class homeUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    public profileUserServlet() {
+    public homeUserServlet() {
         super();
     }
  
@@ -58,7 +49,7 @@ public class profileUserServlet extends HttpServlet {
         // If the user has logged in, then forward to the page
         // /WEB-INF/views/userInfoView.jsp
         RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/asUser/profileUser.jsp");
+                = this.getServletContext().getRequestDispatcher("/asUser/homeviewUser.jsp");
         dispatcher.forward(request, response);
  
     }
@@ -70,3 +61,4 @@ public class profileUserServlet extends HttpServlet {
     }
  
 }
+
