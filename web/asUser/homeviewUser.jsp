@@ -36,7 +36,7 @@
             <section id="banner">
                 <div class="inner">
                     <h2>UTM Court Booking</h2><br>
-                    <h2>WELCOME USERNAME</h2>
+                    <h2>WELCOME <b>${loginedUser.username}</b> </h2>
                 </div>
                 <a href="#one" class="more scrolly">Go</a>
             </section>

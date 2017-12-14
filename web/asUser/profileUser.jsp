@@ -29,9 +29,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                            <A href="userEditProfile.jsp" >Edit Profile</A>
+                            <A href="UpdateProfile?username=${user.username}">Edit Profile</A>
 
-                            <A href="edit.html" >Logout</A>
                             <br>
 
                         </div>
@@ -40,16 +39,20 @@
 
 
                             <div class="panel panel-info">
+                                <p style="color: red;">${errorString}</p>
+
+                                 <c:if test="${not empty user}">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">User Profile</h3>
                                 </div>
+                                
+                                
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src=".../images/female.png" class="img-circle img-responsive"> </div>
+                                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="/images/female.png" class="img-circle img-responsive"> </div>
                                         
                                         
                                         <div class=" col-md-9 col-lg-9 "> 
-                                            <c:forEach items="${ProfileUser}" var="user" >
                                             <table class="table table-user-information">
                                                 <tbody>
                                                     <tr>
@@ -79,7 +82,7 @@
 
                                                 </tbody>
                                             </table>
-                                    </c:foreach>
+                                            </c:if>
                                             <ul class="actions">
                                                 <li><button type="button" onclick=>View <a href="#">History</a></button></li>
                                                 <li><button type="button" onclick=>View <a href="#">Booking</a></button></li>

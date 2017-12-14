@@ -4,7 +4,8 @@
     Author     : yanaramli22
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- Header -->
 <header id="header" class="alt">
@@ -14,11 +15,13 @@
             <li class="special">
                 <a href="#menu" class="menuToggle"><span>Menu</span></a>
                 <div id="menu">
+                    
                     <ul>
                         <li><a href="homeview.jsp">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/ProfileUser">Profile User</a></li>
                         <li><a href="schedule.jsp">Schedule</a></li>
-                        <li><a href="eventUser.jsp">Event</a></li>                                    
+                        <li><a href="eventUser.jsp">Event</a></li>
+                        <li><a href="login.jsp">Logout</a></li>  
                     </ul>
                 </div>
             </li>

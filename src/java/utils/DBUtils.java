@@ -53,8 +53,7 @@ public class DBUtils {
  
     public static UserAccount findUser(Connection conn, String username) throws SQLException {
  
-        String sql = "Select * from user a "//
-                + " where a.username = ? ";
+        String sql = "Select * from user a where a.username = ? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setString(1, username);
