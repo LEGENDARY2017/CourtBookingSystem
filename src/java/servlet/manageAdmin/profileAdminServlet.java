@@ -3,11 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet.manageUser;
+package servlet.manageAdmin;
 
-import beans.UserAccount;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 import java.io.IOException;
-import java.io.PrintWriter;
+ 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,17 +20,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.Connection;
+import java.sql.SQLException;
+ 
+import beans.Admin;
+import java.io.PrintWriter;
+import utils.DBUtils_admin;
 import utils.MyUtils;
+ 
 
-/**
- *
- * @author amyliaahamad
- */
-@WebServlet(urlPatterns = { "/HomeUser" })
-public class homeUserServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/ProfileAdmin" })
+public class profileAdminServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    public homeUserServlet() {
+    public profileAdminServlet() {
         super();
     }
  
@@ -35,21 +43,21 @@ public class homeUserServlet extends HttpServlet {
         HttpSession session = request.getSession();
  
         // Check User has logged on
-        UserAccount loginedUser = MyUtils.getLoginedUser(session);
+        Admin loginedAdmin = MyUtils.getLoginedAdmin(session);
  
         // Not logged in
-        if (loginedUser == null) {
+        if (loginedAdmin == null) {
             // Redirect to login page.
-            response.sendRedirect(request.getContextPath() + "/UserloginServlet");
+            response.sendRedirect(request.getContextPath() + "/AdminloginServlet");
             return;
         }
         // Store info to the request attribute before forwarding.
-        request.setAttribute("user", loginedUser);
+        request.setAttribute("admin", loginedAdmin);
  
         // If the user has logged in, then forward to the page
         // /WEB-INF/views/userInfoView.jsp
         RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/asUser/homeviewUser.jsp");
+                = this.getServletContext().getRequestDispatcher("/asAdmin/profileAdmin.jsp");
         dispatcher.forward(request, response);
  
     }
@@ -61,4 +69,3 @@ public class homeUserServlet extends HttpServlet {
     }
  
 }
-

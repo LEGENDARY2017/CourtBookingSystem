@@ -1,6 +1,6 @@
 <%-- 
-    Document   : profile
-    Created on : Nov 28, 2017, 1:20:35 AM
+    Document   : profleUser
+    Created on : Nov 28, 2017, 1:35:07 AM
     Author     : yanaramli22
 --%>
 
@@ -22,62 +22,66 @@
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
     </head>
-
     <body>
         <jsp:include page="headerAdmin.jsp"></jsp:include>
-        
         <section class="wrapper ">
             <div class="inner">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                            <A href="editprofile.jsp" >Edit Profile</A>
+                            <A href="UpdateAdminProfile?staffid=${admin.staffid}">Edit Profile</A>
 
-                            <A href="edit.html" >Logout</A>
                             <br>
 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
 
+
                             <div class="panel panel-info">
+                                <p style="color: red;">${errorString}</p>
+
+                                 <c:if test="${not empty admin}">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Admin</h3>
+                                    <h3 class="panel-title">Admin Profile</h3>
                                 </div>
+                                
+                                
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic"  <img src="images/female.png"/> </div>
-
-
+                                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="/images/female.png" class="img-circle img-responsive"> </div>
+                                        
+                                        
                                         <div class=" col-md-9 col-lg-9 "> 
                                             <table class="table table-user-information">
                                                 <tbody>
                                                     <tr>
                                                         <td>Name:</td>
-                                                        <td>Shameera</td>
+                                                        <td>${admin.name}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>StaffID:</td>
-                                                        <td>A01</td>
+                                                        <td>Password:</td>
+                                                        <td>${admin.password}</td>
                                                     </tr>
+                                                    
                                                     <tr>
                                                         <td>Email:</td>
-                                                        <td><a href="mailto:shameera@gmail.com">shameera@gmail.com</a></td>
+                                                        <td>${admin.email}</td>
                                                     </tr>
 
                                                     <tr>
-                                                    <tr>
                                                         <td>Contact Number:</td>
-                                                        <td>0172016537</td>
+                                                        <td>${admin.contactNo}</td>
                                                     </tr>
+
 
 
                                                 </tbody>
                                             </table>
-
+                                            </c:if>
+                                           
 
                                         </div>
-
 
                                         </section>
                                     </div>

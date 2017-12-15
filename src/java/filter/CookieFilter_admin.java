@@ -23,14 +23,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
  
-import beans.UserAccount;
-import utils.DBUtils_user;
+import beans.Admin;
+import utils.DBUtils_admin;
 import utils.MyUtils;
  
-@WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
-public class CookieFilter implements Filter {
+@WebFilter(filterName = "cookieFilterAdmin", urlPatterns = { "/*" })
+public class CookieFilter_admin implements Filter {
  
-    public CookieFilter() {
+    public CookieFilter_admin() {
     }
  
     @Override
@@ -49,9 +49,9 @@ public class CookieFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
  
-        UserAccount userInSession = MyUtils.getLoginedUser(session);
+        Admin adminInSession = MyUtils.getLoginedAdmin(session);
         // 
-        if (userInSession != null) {
+        if (adminInSession != null) {
             session.setAttribute("COOKIE_CHECKED", "CHECKED");
             chain.doFilter(request, response);
             return;
@@ -63,10 +63,10 @@ public class CookieFilter implements Filter {
         // Flag check cookie
         String checked = (String) session.getAttribute("COOKIE_CHECKED");
         if (checked == null && conn != null) {
-            String userName = MyUtils.getUserNameInCookie(req);
+            String staffid = MyUtils.getUserNameInCookie(req);
             try {
-                UserAccount user = DBUtils_user.findUser(conn, userName);
-                MyUtils.storeLoginedUser(session, user);
+                Admin admin = DBUtils_admin.findAdmin(conn, staffid);
+                MyUtils.storeLoginedAdmin(session, admin);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -40,7 +40,7 @@ public class homeAdminServlet extends HttpServlet {
         // Not logged in
         if (admin == null) {
             // Redirect to login page.
-            response.sendRedirect(request.getContextPath() + "/loginServlet");
+            response.sendRedirect(request.getContextPath() + "/AdminloginServlet");
             return;
         }
         // Store info to the request attribute before forwarding.

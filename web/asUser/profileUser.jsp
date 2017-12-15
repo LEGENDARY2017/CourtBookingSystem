@@ -67,6 +67,10 @@
                                                         <td>Matric Number:</td>
                                                         <td>${user.matricNo}</td>
                                                     </tr>
+                                                     <tr>
+                                                        <td>Faculty:</td>
+                                                        <td>${user.faculty}</td>
+                                                    </tr>
                                                     <tr>
                                                         <td>Email:</td>
                                                         <td>${user.email}</td>

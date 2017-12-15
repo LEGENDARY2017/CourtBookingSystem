@@ -48,7 +48,7 @@ public class profileUserServlet extends HttpServlet {
         // Not logged in
         if (loginedUser == null) {
             // Redirect to login page.
-            response.sendRedirect(request.getContextPath() + "/loginServlet");
+            response.sendRedirect(request.getContextPath() + "/UserloginServlet");
             return;
         }
         // Store info to the request attribute before forwarding.

@@ -16,7 +16,7 @@
                 <div id="menu">
                     <ul>
                         <li><a href="homeviewAdmin.jsp">Home</a></li>
-                        <li><a href="profileAdmin.jsp">Profile User</a></li>
+                        <li><a href="${pageContext.request.contextPath}/ProfileAdmin">Profile Admin</a></li>
                         <li><a href="schedule.jsp">Schedule</a></li>
                         <li><a href="eventAdmin.jsp">Event</a></li>
                         <li><a href="adminHistory.jsp">History</a></li>

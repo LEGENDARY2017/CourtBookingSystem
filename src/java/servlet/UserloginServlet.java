@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -118,10 +119,11 @@ import utils.DBUtils_user;
  * and open the template in the editor.
  */
 
-public class loginServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/UserloginServlet" })
+public class UserloginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    public loginServlet() {
+    public UserloginServlet() {
         super();
     }
  
@@ -133,7 +135,7 @@ public class loginServlet extends HttpServlet {
         // Forward to /WEB-INF/views/loginView.jsp
         // (Users can not access directly into JSP pages placed in WEB-INF)
         RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/login.jsp");
+                = this.getServletContext().getRequestDispatcher("/userlogin.jsp");
  
         dispatcher.forward(request, response);
  
@@ -146,30 +148,19 @@ public class loginServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String staffid = request.getParameter ("password");
  
-        UserAccount user = null;
-        Admin admin = null;
+        UserAccount loginedUser = null;
         boolean hasError = false;
         String errorString = null;
  
-        if (username == null || password == null || username.length() == 0 || password.length() == 0 || staffid == null || staffid.length() == 0) {
+        if ( username == null || password == null || username.length() == 0 || password.length() == 0  ) {
             hasError = true;
             errorString = "Required username, password";
         } else {
             Connection conn = MyUtils.getStoredConnection(request);
             try {
                 // Find the user in the DB
-               if ( admin == null )
-               {
-                    user = DBUtils_user.findUser(conn, username, password);
-               }
-                
-               else if ( user == null ) 
-               {
-                    admin = DBUtils_admin.findAdmin(conn, staffid, password);
-               }
-               
+              loginedUser = DBUtils_user.findUser(conn, username, password);
                
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -179,27 +170,20 @@ public class loginServlet extends HttpServlet {
         }
         // If error, forward to /WEB-INF/views/login.jsp
         if (hasError) {
-            if(user == null)
-            {
-            user = new UserAccount();
-            user.setUsername(username);
-            user.setPassword(password);
-            }
             
-            else if (admin == null)
-            {
-                admin = new Admin();
-                admin.setStaffid(staffid);
-                admin.setPassword(password);
-            }
+            loginedUser = new UserAccount();
+            loginedUser.setUsername(username);
+            loginedUser.setPassword(password);
+            
+            
             // Store information in request attribute, before forward.
             request.setAttribute("errorString", errorString);
-            request.setAttribute("user", user);
-            request.setAttribute("admin",admin);
+            request.setAttribute("loginedUser", loginedUser);
+           
  
             // Forward to /WEB-INF/views/login.jsp
             RequestDispatcher dispatcher //
-                    = this.getServletContext().getRequestDispatcher("/login.jsp");
+                    = this.getServletContext().getRequestDispatcher("/userlogin.jsp");
  
             dispatcher.forward(request, response);
         }
@@ -208,19 +192,11 @@ public class loginServlet extends HttpServlet {
         // And redirect to userInfo page.
         else {
             HttpSession session = request.getSession();
-            if ( admin == null)
-            {
-            MyUtils.storeLoginedUser(session, user);
+            
+            MyUtils.storeLoginedUser(session, loginedUser);
              // Redirect to userInfo page.
             response.sendRedirect(request.getContextPath() + "/HomeUser");
-            }
             
-            else if (user == null)
-            {
-                MyUtils.storeLoginedAdmin(session, admin);
-                 // Redirect to userInfo page.
-            response.sendRedirect(request.getContextPath() + "/HomeAdmin");
-            }
             
            
         }

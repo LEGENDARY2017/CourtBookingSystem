@@ -52,11 +52,11 @@
                     <h2>UTM Court Booking</h2>
                     <section class="wrapper ">
                         <div class="inner">
-                            <h3>LOGIN</h3>
-                            <form method="post" action="loginServlet">
+                            <h3>USER LOGIN</h3>
+                            <form method="post" action="UserloginServlet">
                                 <div class="row uniform">
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="username" id="username" placeholder="Username/Staff ID" />
+                                        <input type="text" name="username" id="username" placeholder="Username" />
                                     </div>
 
                                     <div class="6u 12u$(xsmall)">                             
