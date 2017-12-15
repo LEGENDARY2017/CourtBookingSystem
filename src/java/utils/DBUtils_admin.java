@@ -21,59 +21,56 @@ import java.util.List;
 
 public class DBUtils_admin {
  
-    /*public static Admin findUser(Connection conn, //
-            String username, String password) throws SQLException {
+    public static Admin findAdmin(Connection conn, //
+            String staffid, String password) throws SQLException {
  
-        String sql = "Select * from user a " //
-                + " where a.username = ? and a.password= ?";
+        String sql = "Select * from admin a " //
+                + " where a.staffid = ? and a.password= ?";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
-        pstm.setString(1, username);
+        pstm.setString(1, staffid);
         pstm.setString(2, password);
         ResultSet rs = pstm.executeQuery();
  
         if (rs.next()) {
             String name = rs.getString("name");
-            String matricNo = rs.getString("matricNo");
-            String faculty = rs.getString("faculty");
             String email = rs.getString("email");
             String contactNo = rs.getString("contactNo");
-            UserAccount user = new UserAccount();
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setName(name);
-            user.setMatricNo(matricNo);
-            user.setFaculty(faculty);
-            user.setEmail(email);
-            user.setContactNo(contactNo);
-            return user;
+            Admin admin = new Admin();
+            admin.setStaffid(staffid);
+            admin.setName(name);
+            admin.setPassword(password);
+            admin.setEmail(email);
+            admin.setContactNo(contactNo);
+            return admin;
         }
         return null;
     }
  
-   /* public static UserAccount findUser(Connection conn, String username) throws SQLException {
+    public static Admin findAdmin(Connection conn, String staffid) throws SQLException {
  
-        String sql = "Select * from user a "//
-                + " where a.username = ? ";
+        String sql = "Select * from admin a where a.staffid = ? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
-        pstm.setString(1, username);
+        pstm.setString(1, staffid);
  
         ResultSet rs = pstm.executeQuery();
  
-        while (rs.next()) {
-            String password = rs.getString("password");
+        if (rs.next()) {
             String name = rs.getString("name");
-            String matricNo = rs.getString("matricNo");
-            String faculty = rs.getString("faculty");
+            String password = rs.getString("password");
             String email = rs.getString("email");
             String contactNo = rs.getString("contactNo");
-            UserAccount user = new UserAccount(username,password,name,matricNo,faculty,email,contactNo);
-            
-            return user;
+            Admin admin = new Admin();
+            admin.setStaffid(staffid);
+            admin.setName(name);
+            admin.setPassword(password);
+            admin.setEmail(email);
+            admin.setContactNo(contactNo);
+            return admin;
         }
         return null;
-    }*/
+    }
     
     public static List<Admin> queryAdmin(Connection conn) throws SQLException {
         String sql = "Select * from admin";
@@ -100,17 +97,17 @@ public class DBUtils_admin {
     }
 
      
-    /*public static void updateUser(Connection conn, UserAccount user) throws SQLException {
-        String sql = "Update user set password =?, email =?, ContactNo=? where uesrname=? ";
+     public static void updateAdmin(Connection conn, Admin admin) throws SQLException {
+        String sql = "Update admin set password =?, email=?, contactNo=? where staffid=? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
-        pstm.setString(1, user.getPassword());
-        pstm.setString(2, user.getEmail());
-        pstm.setString(3, user.getContactNo());
-        pstm.setString(4, user.getUsername());
+        pstm.setString(1, admin.getPassword());
+        pstm.setString(2, admin.getEmail());
+        pstm.setString(3, admin.getContactNo());
+        pstm.setString(4, admin.getStaffid());
         pstm.executeUpdate();
-    }*/
+    }
  
     public static void insertAdmin(Connection conn, Admin admin) throws SQLException {
         String sql = "Insert into admin(staffid, name, password, email, contactNo) values (?,?,?,?,?)";
@@ -127,15 +124,15 @@ public class DBUtils_admin {
         pstm.executeUpdate();
     }
  
-    /*public static void deleteUser(Connection conn, String username) throws SQLException {
-        String sql = "Delete from user where username= ?";
+    public static void deleteAdmin(Connection conn, String staffid) throws SQLException {
+        String sql = "Delete from admin where staffid= ?";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
-        pstm.setString(1, username);
+        pstm.setString(1, staffid);
  
         pstm.executeUpdate();
-    }*/
+    }
 
   
     

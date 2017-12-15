@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import beans.Admin;
 import beans.UserAccount;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,7 +21,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import utils.DBUtils;
+import utils.DBUtils_admin;
 import utils.MyUtils;
+import utils.DBUtils_user;
 
 /**
  *
@@ -36,9 +39,9 @@ import utils.MyUtils;
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     
+     */
     
-     @Override
+   /*  @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
@@ -143,24 +146,31 @@ public class loginServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String staffid = request.getParameter ("password");
  
         UserAccount user = null;
+        Admin admin = null;
         boolean hasError = false;
         String errorString = null;
  
-        if (username == null || password == null || username.length() == 0 || password.length() == 0) {
+        if (username == null || password == null || username.length() == 0 || password.length() == 0 || staffid == null || staffid.length() == 0) {
             hasError = true;
-            errorString = "Required username and password!";
+            errorString = "Required username, password";
         } else {
             Connection conn = MyUtils.getStoredConnection(request);
             try {
-                // Find the user in the DB.
-                user = DBUtils.findUser(conn, username, password);
- 
-                if (user == null) {
-                    hasError = true;
-                    errorString = "User Name or password invalid";
-                }
+                // Find the user in the DB
+               if ( admin == null )
+               {
+                    user = DBUtils_user.findUser(conn, username, password);
+               }
+                
+               else if ( user == null ) 
+               {
+                    admin = DBUtils_admin.findAdmin(conn, staffid, password);
+               }
+               
+               
             } catch (SQLException e) {
                 e.printStackTrace();
                 hasError = true;
@@ -169,13 +179,23 @@ public class loginServlet extends HttpServlet {
         }
         // If error, forward to /WEB-INF/views/login.jsp
         if (hasError) {
+            if(user == null)
+            {
             user = new UserAccount();
             user.setUsername(username);
             user.setPassword(password);
- 
+            }
+            
+            else if (admin == null)
+            {
+                admin = new Admin();
+                admin.setStaffid(staffid);
+                admin.setPassword(password);
+            }
             // Store information in request attribute, before forward.
             request.setAttribute("errorString", errorString);
             request.setAttribute("user", user);
+            request.setAttribute("admin",admin);
  
             // Forward to /WEB-INF/views/login.jsp
             RequestDispatcher dispatcher //
@@ -188,11 +208,21 @@ public class loginServlet extends HttpServlet {
         // And redirect to userInfo page.
         else {
             HttpSession session = request.getSession();
+            if ( admin == null)
+            {
             MyUtils.storeLoginedUser(session, user);
- 
-            
-            // Redirect to userInfo page.
+             // Redirect to userInfo page.
             response.sendRedirect(request.getContextPath() + "/HomeUser");
+            }
+            
+            else if (user == null)
+            {
+                MyUtils.storeLoginedAdmin(session, admin);
+                 // Redirect to userInfo page.
+            response.sendRedirect(request.getContextPath() + "/HomeAdmin");
+            }
+            
+           
         }
     }
  

@@ -20,7 +20,7 @@ import java.util.List;
 
 public class DBUtils_user {
  
-    /*public static UserAccount findUser(Connection conn, //
+    public static UserAccount findUser(Connection conn, //
             String username, String password) throws SQLException {
  
         String sql = "Select * from user a " //
@@ -52,27 +52,32 @@ public class DBUtils_user {
  
     public static UserAccount findUser(Connection conn, String username) throws SQLException {
  
-        String sql = "Select * from user a "//
-                + " where a.username = ? ";
+        String sql = "Select * from user a where a.username = ? ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setString(1, username);
  
         ResultSet rs = pstm.executeQuery();
  
-        while (rs.next()) {
+        if (rs.next()) {
             String password = rs.getString("password");
             String name = rs.getString("name");
             String matricNo = rs.getString("matricNo");
             String faculty = rs.getString("faculty");
             String email = rs.getString("email");
             String contactNo = rs.getString("contactNo");
-            UserAccount user = new UserAccount(username,password,name,matricNo,faculty,email,contactNo);
-            
+            UserAccount user = new UserAccount();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setName(name);
+            user.setMatricNo(matricNo);
+            user.setFaculty(faculty);
+            user.setEmail(email);
+            user.setContactNo(contactNo);
             return user;
         }
         return null;
-    }*/
+    }
     
   
     public static List<UserAccount> queryUser(Connection conn) throws SQLException {

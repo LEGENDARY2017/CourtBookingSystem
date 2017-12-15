@@ -20,7 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
  
 import beans.UserAccount;
+import beans.Admin;
 import utils.DBUtils;
+import utils.DBUtils_admin;
 import utils.MyUtils;
  
 @WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
@@ -46,8 +48,17 @@ public class CookieFilter implements Filter {
         HttpSession session = req.getSession();
  
         UserAccount userInSession = MyUtils.getLoginedUser(session);
+        Admin adminInSession = MyUtils.getLoginedAdmin(session);
         // 
-        if (userInSession != null) {
+        if (adminInSession != null) 
+        {
+            session.setAttribute("COOKIE_CHECKED", "CHECKED");
+            chain.doFilter(request, response);
+            return;
+        }
+        
+        else if (userInSession != null) 
+        {
             session.setAttribute("COOKIE_CHECKED", "CHECKED");
             chain.doFilter(request, response);
             return;
@@ -57,15 +68,30 @@ public class CookieFilter implements Filter {
         Connection conn = MyUtils.getStoredConnection(request);
  
         // Flag check cookie
+        
         String checked = (String) session.getAttribute("COOKIE_CHECKED");
         if (checked == null && conn != null) {
-            String username = MyUtils.getUserNameInCookie(req);
-            try {
-                UserAccount user = DBUtils.findUser(conn, username);
-                MyUtils.storeLoginedUser(session, user);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            if (userInSession != null) 
+               {
+                    String username = MyUtils.getUserNameInCookie(req);
+                    try {
+                        UserAccount user = DBUtils.findUser(conn, username);
+                        MyUtils.storeLoginedUser(session, user);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+               }
+            
+            else if (adminInSession != null) 
+               {
+                    String staff = MyUtils.getUserNameInCookie(req);
+                    try {
+                        Admin admin = DBUtils_admin.findAdmin(conn, staff);
+                        MyUtils.storeLoginedAdmin(session, admin);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+               }
             // Mark checked Cookies.
             session.setAttribute("COOKIE_CHECKED", "CHECKED");
         }

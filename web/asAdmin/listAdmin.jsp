@@ -66,14 +66,10 @@
                                             <td>${admin.email}</td>
                                             <td>${admin.contactNo}</td>
 
-                                            <!--<td>
-                                                <a href="../EditCourtServlet">
-                                                    <img src="../images/pencil-edit-button.png" alt/>
-                                                </a>
-                                                <a href="../deleteCourtServlet">
-                                                    <img src="../images/rubbish-bin.png" alt/>
-                                                </a>
-                                            </td>-->
+                                            <td>
+                                                    <a href="EditAdmin?staffid=${admin.staffid}">Edit</a>
+                                                    <a href="DeleteAdmin?staffid=${admin.staffid}">Delete</a>
+                                            </td>
                                         </tr>
 
 
@@ -81,7 +77,7 @@
                                 </c:forEach>
                             </table>
 
-                            <img src="images/plus.png" alt/><a href="createAdmin">Add Admin </a>                       
+                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/createAdmin" >Add Admin </a>                       
 
                         </div>
 

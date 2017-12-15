@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  
 import beans.UserAccount;
 import utils.DBUtils_user;
-import utils.DBUtils;
 import utils.MyUtils;
  
 @WebServlet(urlPatterns = { "/EditUser" })
@@ -42,7 +41,7 @@ public class EditUserServlet extends HttpServlet {
         String errorString = null;
  
        try {
-       user = DBUtils.findUser(conn, username);
+       user = DBUtils_user.findUser(conn, username);
        } catch (SQLException e) {
          e.printStackTrace();
             errorString = e.getMessage();

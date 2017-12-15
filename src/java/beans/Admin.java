@@ -15,6 +15,19 @@ public class Admin {
     private String password;
     private String email;
     private String contactNo;
+    
+     public Admin() {
+
+    }
+
+    public Admin(String staffid, String name, String password,String email, String contactNo) {
+        
+        this.staffid = staffid;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.contactNo = contactNo;
+    }
 
     public String getStaffid() {
         return staffid;
