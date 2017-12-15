@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <!-- Header -->
 <header id="header" class="alt">
-    <h1><a href="index.html">UTM Court Booking</a></h1>
+    <h1><a href="index.jsp">UTM Court Booking</a></h1>
     <nav id="nav">
         <ul>
             <li class="special">
@@ -17,7 +17,7 @@
                 <div id="menu">
                     
                     <ul>
-                        <li><a href="homeview.jsp">Home</a></li>
+                        <li><a href="index.jsp">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/ProfileUser">Profile User</a></li>
                         <li><a href="schedule.jsp">Schedule</a></li>
                         <li><a href="eventUser.jsp">Event</a></li>

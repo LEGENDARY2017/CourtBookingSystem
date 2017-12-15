@@ -31,14 +31,14 @@
 
             <!-- Header -->
             <header id="header" class="alt">
-                <h1><a href="index.html">UTM Court BOOKING</a></h1>
+                <h1><a href="index.jsp">UTM Court BOOKING</a></h1>
                 <nav id="nav">
                     <ul>
                         <li class="special">
                             <a href="#menu" class="menuToggle"><span>Menu</span></a>
                             <div id="menu">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>                                    
+                                    <li><a href="index.jsp">Home</a></li>                                    
                                 </ul>
                             </div>
                         </li>

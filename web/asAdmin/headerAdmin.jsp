@@ -8,14 +8,14 @@
 <!DOCTYPE html>
 <!-- Header -->
 <header id="header" class="alt">
-    <h1><a href="index.html">UTM Court Booking</a></h1>
+    <h1><a href="index.jsp">UTM Court Booking</a></h1>
     <nav id="nav">
         <ul>
             <li class="special">
                 <a href="#menu" class="menuToggle"><span>Menu</span></a>
                 <div id="menu">
                     <ul>
-                        <li><a href="homeviewAdmin.jsp">Home</a></li>
+                        <li><a href="index.jsp">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/ProfileAdmin">Profile Admin</a></li>
                         <li><a href="schedule.jsp">Schedule</a></li>
                         <li><a href="eventAdmin.jsp">Event</a></li>

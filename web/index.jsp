@@ -38,7 +38,7 @@
                             <a href="#menu" class="menuToggle"><span>Menu</span></a>
                             <div id="menu">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>                                    
+                                    <li><a href="index.jsp">Home</a></li>                                    
                                 </ul>
                             </div>
                         </li>
@@ -53,23 +53,20 @@
                     <section class="wrapper ">
                         <div class="inner">
                             <h3>WHO ARE YOU ?</h3>
-                            <li>
+                            
                                     <span>
-                                        <img src=".../images/admin.png" alt/>
+                                        <img src="images/admin.png" alt/>
+                                    </span>
+                                    <span>
+                                        <img src="images/admin.png" alt/>
                                     </span>
                                     <br>
                                     <ul class="actions">
-                                        <li><a href="${pageContext.request.contextPath}/AdminloginServlet" class="button special">As Admin</a></li>                                       
+                                        <li><a href="${pageContext.request.contextPath}/AdminloginServlet" class="button special">Admin</a></li>                                       
+                                    
+                                        <li><a href="${pageContext.request.contextPath}/UserloginServlet" class="button special">User</a></li>                                       
                                     </ul>
-                                </li><li>
-                                    <span>
-                                        <img src=".../images/admin.png" alt/>
-                                    </span>
-                                    <br>
-                                    <ul class="actions">
-                                        <li><a href="${pageContext.request.contextPath}/UserloginServlet" class="button special">As User</a></li>                                       
-                                    </ul>
-                                </li>
+                                
                                 
                             </form>
                         </div>
