@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.CourtDetail;
-import utils.DBUtils;
+import utils.DBUtils_court;
 import utils.MyUtils;
 
 /**
@@ -52,7 +52,7 @@ public class courtAdminServlet extends HttpServlet {
         String errorString = null;
         List<CourtDetail> list = null;
         try {
-            list = DBUtils.queryCourt(conn);
+            list = DBUtils_court.queryCourt(conn);
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();

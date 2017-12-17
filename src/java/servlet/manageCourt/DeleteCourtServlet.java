@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import utils.DBUtils;
+import utils.DBUtils_court;
 import utils.MyUtils;
 
 /**
@@ -52,7 +52,7 @@ public class DeleteCourtServlet extends HttpServlet {
         String errorString = null;
  
         try {
-            DBUtils.deleteCourt(conn, courtid);
+            DBUtils_court.deleteCourt(conn, courtid);
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();
