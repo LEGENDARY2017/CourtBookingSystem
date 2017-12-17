@@ -30,14 +30,14 @@
 
         <!-- Wrapper -->
         <div id="page-wrapper">
-            
+
             <jsp:include page="headerAdmin.jsp"></jsp:include>
 
-            <!--Banner-->
-            <section id="banner">
-                <div class="inner">
-                    <h2>UTM Court Booking</h2><br>
-                    <h2>WELCOME <b>${loginedAdmin.name}</b> </h2>
+                <!--Banner-->
+                <section id="banner">
+                    <div class="inner">
+                        <h2>UTM Court Booking</h2><br>
+                        <h2>WELCOME <b>${loginedAdmin.name}</b> </h2>
                 </div>
                 <a href="#one" class="more scrolly">Go</a>
             </section>
@@ -45,39 +45,32 @@
             <!-- One -->
             <section id="one" class="wrapper style1 special">
                 <div class="inner">                    
-                    <ul class="icons major">
+                    <ul class="icons major actions">
                         <li>
                             <span>
-                                <img src=".../images/schedule.png" alt/>
-                            </span>
-                            <ul class="actions">
-                                <li><a href="schedule.jsp" class="button special">Schedule</a></li>                                       
-                            </ul>
+                                <img src="images/schedule.png" alt/><br>
+                                <a href="schedule.jsp" class="button special">Schedule</a> 
+                            </span> 
                         </li>
                         <li>
                             <span>
-                                <img src=".../images/event.png"/>
+                                <img src="images/event.png" alt/><br>
+                                <a href="eventAdmin.jsp" class="button special">Event</a>   
                             </span>
-                            <ul class="actions">
-                                <li><a href="eventAdmin.jsp" class="button special">Event</a></li>                                       
-                            </ul>
                         </li>
                     </ul>
-                    <ul class="icons major">
+                    <ul class="icons major actions">
                         <li>
                             <span>
-                                <img src=".../images/history.png"/>
+                                <img src="images/history.png" alt/><br>
+                                <a href="adminHistory.jsp" class="button special">History</a>   
                             </span>
-                            <ul class="actions">
-                                <li><a href="adminHistory.jsp" class="button special">History</a></li>                                       
-                            </ul>
                         </li>
                         <li>
                             <span>                                
-                                <img src=".../images/manage.png"/>                                
-                            </span><ul class="actions">
-                                <li><a href="manage.jsp" class="button special">Manage System</a></li>                                       
-                            </ul>
+                                <img src="images/manage.png" alt/><br>  
+                                <a href="manage.jsp" class="button special">Manage System</a>    
+                            </span>
                         </li>
                     </ul>
                 </div>

@@ -48,7 +48,7 @@
                     <ul class="icons major">
                         <li>
                             <span>                               
-                                <img src=".../images/schedule.png" alt/>                                
+                                <img src="images/schedule.png" alt/>                                
                             </span>
                             <ul class="actions">
                                 <li><a href="asUser/schedule.jsp" class="button special">Schedule</a></li>                                       
@@ -56,7 +56,7 @@
                         </li>
                         <li>
                             <span>                               
-                                <img src=".../images/event.png"/>                                
+                                <img src="images/event.png"/>                                
                             </span>
                             <ul class="actions">
                                 <li><a href="eventUser.jsp" class="button special">Event</a></li>                                       

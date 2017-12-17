@@ -54,20 +54,23 @@
                         <div class="inner">
                             <h3>WHO ARE YOU ?</h3>
                             
-                                    <span>
-                                        <img src="images/admin.png" alt/>
-                                    </span>
-                                    <span>
-                                        <img src="images/admin.png" alt/>
-                                    </span>
-                                    <br>
-                                    <ul class="actions">
-                                        <li><a href="${pageContext.request.contextPath}/AdminloginServlet" class="button special">Admin</a></li>                                       
-                                    
-                                        <li><a href="${pageContext.request.contextPath}/UserloginServlet" class="button special">User</a></li>                                       
-                                    </ul>
-                                
-                                
+                            <ul class="actions">
+                            <li>
+                                <span>
+                                <img src="images/admin.png" alt/><br>
+                                <a href="${pageContext.request.contextPath}/AdminloginServlet" class="button special">Admin</a>
+                            </span>
+                            </li>
+                            &nbsp;
+                            <li>
+                                <span>
+                                <img src="images/admin.png" alt/><br>
+                                <a href="${pageContext.request.contextPath}/UserloginServlet" class="button special">User</a> 
+                            </span>                                             
+                             </li>                                    
+                            </ul>
+
+
                             </form>
                         </div>
                     </section>
