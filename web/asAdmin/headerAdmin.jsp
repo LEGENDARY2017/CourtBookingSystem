@@ -15,7 +15,7 @@
                 <a href="#menu" class="menuToggle"><span>Menu</span></a>
                 <div id="menu">
                     <ul>
-                        <li><a href="index.jsp">Home</a></li>
+                        <li><a href="${pageContext.request.contextPath}/HomeAdmin">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/ProfileAdmin">Profile Admin</a></li>
                         <li><a href="schedule.jsp">Schedule</a></li>
                         <li><a href="eventAdmin.jsp">Event</a></li>
