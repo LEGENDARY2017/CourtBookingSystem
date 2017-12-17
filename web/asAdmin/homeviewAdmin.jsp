@@ -69,7 +69,7 @@
                         <li>
                             <span>                                
                                 <img src="images/manage.png" alt/><br>  
-                                <a href="manage.jsp" class="button special">Manage System</a>    
+                                <a href="asAdmin/manage.jsp" class="button special">Manage System</a>    
                             </span>
                         </li>
                     </ul>
