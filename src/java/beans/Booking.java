@@ -16,22 +16,24 @@ public class Booking {
     private String username;
     private String staffid;
     private String dateBook;
-    private String timeslot;
+    private String start;
+    private String end;
     private String feedback;
     
     public Booking() {
 
     }
 
-    public Booking(String bookingid, String courtid, String username, String dateBook, String timeslot, String feedback) {
-        this.bookingid = bookingid;
+    public Booking(String courtid, String username, String staffid, String dateBook, String start, String end, String feedback) {
         this.courtid = courtid;
+        this.staffid = staffid;
         this.username = username;
         this.dateBook = dateBook;
-        this.timeslot = timeslot;
+        this.start = start;
+        this.end = end;
          this.feedback = feedback;
     }
-    
+ 
       public String getBookingid() {
         return bookingid;
     }
@@ -72,14 +74,22 @@ public class Booking {
         this.dateBook = dateBook;
     }
 
-    public String getTimeslot() {
-        return timeslot;
+    public String getStart() {
+        return start;
     }
 
-    public void setTimeslot(String timeslot) {
-        this.timeslot = timeslot;
+    public void setStart(String start) {
+        this.start = start;
     }
 
+    public String getEnd() {
+        return start;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+    
     public String getFeedback() {
         return feedback;
     }

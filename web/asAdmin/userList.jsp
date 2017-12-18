@@ -27,7 +27,7 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-
+         <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
     </head>
 
@@ -53,11 +53,10 @@
                                    
                                      <div class="6u 12u$(xsmall)">
                                         <div class="select-wrapper" >
-                                            <select  name="faculty">
-                                                <option value="">-Select Available Faculty-</option>
-                                                <option value="FC">FC</option>
-                                                <option value="FKA">FKA</option>
-                                                <option value="FGHT">FGHT</option>
+                                            <select name="faculty">
+                                                <c:forEach items="${requestScope.UserList}" var ="user">
+                                                <option value="${user.faculty}">${user.faculty}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>
@@ -67,6 +66,9 @@
                                             <li><input type="submit" class="special" value="Search"/></li>
                                         </ul>
                                     </div>
+                                    <ul class="actions">
+                                        <li><a href="${pageContext.request.contextPath}/UserList" class="button special">Back</a></li>                                       
+                                    </ul>
                                 </div>
                                 </form>
                                 <table table="event" class="table table-striped">

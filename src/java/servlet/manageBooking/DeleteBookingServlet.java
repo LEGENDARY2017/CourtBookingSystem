@@ -3,56 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet.manageCourt;
+package servlet.manageBooking;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-
+ 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import utils.DBUtils_court;
+import utils.DBUtils_booking;
 import utils.MyUtils;
-
+ 
 /**
  *
- * @author yanaramli22
+ * @author Shameera
  */
-@WebServlet(urlPatterns = {"/deleteCourt"})
-public class DeleteCourtServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/DeleteBooking"})
+public class DeleteBookingServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-
-    public DeleteCourtServlet() {
+ 
+    public DeleteBookingServlet() {
         super();
     }
-
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Connection conn = MyUtils.getStoredConnection(request);
  
-        String courtid = (String) request.getParameter("courtid");
+        String bookingid = (String) request.getParameter("bookingid");
  
         String errorString = null;
  
         try {
-            DBUtils_court.deleteCourt(conn, courtid);
+            DBUtils_booking.deleteBooking(conn, bookingid);
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();
@@ -64,39 +53,21 @@ public class DeleteCourtServlet extends HttpServlet {
             request.setAttribute("errorString", errorString);
             // 
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/WEB-INF/views/courtAdmin.jsp");
+                    .getRequestDispatcher("/asAdmin/bookingListAdmin.jsp");
             dispatcher.forward(request, response);
         }
         // If everything nice.
         // Redirect to the product listing page.        
         else {
-            response.sendRedirect(request.getContextPath() + "/courtList");
+            response.sendRedirect(request.getContextPath() + "/BookingList");
         }
  
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+ 
 }
