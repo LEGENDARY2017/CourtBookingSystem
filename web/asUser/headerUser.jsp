@@ -19,8 +19,8 @@
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/HomeUser">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/ProfileUser">Profile User</a></li>
-                        <li><a href="schedule.jsp">Schedule</a></li>
-                        <li><a href="eventUser.jsp">Event</a></li>
+                        <li><a href="${pageContext.request.contextPath}/ScheduleList">Schedule</a></li>
+                        <li><a href="${pageContext.request.contextPath}/EventUser">Event</a></li>
                         <li><a href="LogoutServlet">Logout</a></li>  
                     </ul>
                 </div>

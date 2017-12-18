@@ -26,6 +26,7 @@
     <body>
         <section class="wrapper ">
         <div class="inner">
+            
         <section>
             <h3 class="major">Edit Profile</h3>
             <p style="color: red;">${errorString}</p>
