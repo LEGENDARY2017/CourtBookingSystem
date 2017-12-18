@@ -27,7 +27,7 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-           <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+           
 
     </head>
 
@@ -52,8 +52,8 @@
                                         <tr>
                                             <th>Court ID <a href="SortCourt?courtid"><img src="images/sort.png"></a></th>
                                         <th>Court Type <a href="SortCourt?courtType"><img src="images/sort.png"></a></th>
-                                        <th>Status <a href="SortCourt?status"><img src="images/sort.png"></a></th>
-                                        <th>Description <a href="SortCourt?statusDesc"><img src="images/sort.png"></a></th>
+                                        <th>Status </th>
+                                        <th>Description </th>
                                         </tr>
 
                                     </thead>
@@ -67,10 +67,8 @@
                                             <td>${court.statusDesc}</td>
 
                                             <td>
-<<<<<<< HEAD
                                                     <a href="EditCourt?courtid=${court.courtid}"><img src="images/pencil-edit-button.png"></a>
                                                     <a href="DeleteCourt?courtid=${court.courtid}"><img src="images/rubbish-bin.png"></a>
-=======
                
                                             </td>
                                         </tr>
