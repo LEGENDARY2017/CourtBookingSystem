@@ -180,7 +180,21 @@ public class DBUtils_booking {
         pstm.executeUpdate();
     }
 
-    public static void insertBooking(Connection conn, Booking booking) throws SQLException {
+    public static void insertBookingUser(Connection conn, Booking booking) throws SQLException {
+        String sql = "Insert into Booking(courtid, username, dateBook, start, end) values (?,?,?,?,?)";
+
+        PreparedStatement pstm = conn.prepareStatement(sql);
+
+        pstm.setString(1, booking.getCourtid());
+        pstm.setString(2, booking.getUsername());
+        pstm.setString(3, booking.getDateBook());
+        pstm.setString(4, booking.getStart());
+        pstm.setString(5, booking.getEnd());
+
+        pstm.executeUpdate();
+    }
+    
+    public static void insertBookingAdmin(Connection conn, Booking booking) throws SQLException {
         String sql = "Insert into Booking(courtid, staffid, dateBook, start, end) values (?,?,?,?,?)";
 
         PreparedStatement pstm = conn.prepareStatement(sql);
