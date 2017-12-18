@@ -17,7 +17,7 @@
 
 --
 -- Table structure for table `admin`
---
+
 create database if not exists utmcourt;
 use utmcourt;
 
@@ -57,7 +57,8 @@ CREATE TABLE `booking` (
   `username` varchar(10) NOT NULL,
   `staffid` varchar(10) NOT NULL,
   `dateBook` date NOT NULL,
-  `timeslot` varchar(50) NOT NULL,
+  `start` int NOT NULL,
+  `end` int NOT NULL,
   `feedback` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`bookingid`),
   KEY `courtid` (`courtid`),
@@ -88,8 +89,7 @@ DROP TABLE IF EXISTS `court`;
 CREATE TABLE `court` (
   `courtid` varchar(3) NOT NULL,
   `courtType` varchar(45) NOT NULL,
-  `timeslot` int(11) NOT NULL,
-  PRIMARY KEY (`courtid`,`timeslot`)
+  PRIMARY KEY (`courtid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
