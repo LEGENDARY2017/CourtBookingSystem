@@ -35,7 +35,7 @@
                             <c:if test="${not empty admin}">
                             <div>
                                 <center><h2>${admin.name}</h2>
-                                    <img src="images/user.png"><br>
+                                    <img src="images/admin.png"><br>
                                     <a href="UpdateAdminProfile?staffid=${admin.staffid}" class="button">Edit Profile</a></center>
                             </div>
                             <div class=" col-md-9 col-lg-9 "> 

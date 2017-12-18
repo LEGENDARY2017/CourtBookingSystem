@@ -64,7 +64,7 @@
                             &nbsp;
                             <li>
                                 <span>
-                                <img src="images/admin.png" alt/><br>
+                                <img src="images/user.png" alt/><br>
                                 <a href="${pageContext.request.contextPath}/UserloginServlet" class="button special">User</a> 
                             </span>                                             
                              </li>                                    

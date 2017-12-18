@@ -66,7 +66,6 @@
                                         <input type="text" name="email" id="email" value="${admin.email}"/>
                                     </div>
                                     <br> 
-
                                     <div class="6u 12u(xsmall)">
                                         <ul class="actions">
                                             <li><input type="submit" value="Submit" class="fit special" /></li>

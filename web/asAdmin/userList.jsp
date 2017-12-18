@@ -63,12 +63,13 @@
                                      
                                     <div class="6u 12u$">
                                         <ul class="actions">
-                                            <li><input type="submit" class="special" value="Search"/></li>
+                                            <li><input type="submit" class="fit special" value="Search"/></li>
+                                            <li><a href="${pageContext.request.contextPath}/UserList" class="button fit special">Back</a></li>                                       
+                                    
                                         </ul>
                                     </div>
-                                    <ul class="actions">
-                                        <li><a href="${pageContext.request.contextPath}/UserList" class="button special">Back</a></li>                                       
-                                    </ul>
+                                   
+                                        
                                 </div>
                                 </form>
                                 <table table="event" class="table table-striped">
