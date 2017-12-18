@@ -25,38 +25,60 @@
     </head>
 
 
+ <body class="landing">
 
-    <body>
         <jsp:include page="headerUser.jsp"></jsp:include>
-        <section>
-            <h3 class="major">Event Schedule</h3>
-            <div class="table-wrapper">
-                <table table="event" class="table table-striped">
-                    <thead>
-                        <tr>
 
-                            <th>Event name</th>
-                            <th>Event Date</th>
-                            <th>Event Time</th>
-                            <th>Description</th>                            
-                            <th>Court ID</th>                            
-                        </tr>
+            <article id="main">
+                <header>
+                    <h2>List of Event</h2>
+                    <p></p>
+                </header>
+                <section class="wrapper style5">
+                    <div class="inner">
 
-                    </thead>
-                    <tbody>                        
-                    <td>Sufkom</td>
-                    <td>31/08/2017</td>
-                    <td>0800am</td>
-                    <td>FC punya</td>                        
-                    <td>B1</td>                        
-                    </tbody>
-                </table>            
+                        <section>
+                            <div class="table-wrapper">
+                                <table table="event" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Event ID</th>
+                                            <th>Event Organizer</th>
+                                            <th>Event Name</th>
+                                            <th>Date</th>
+                                            <th>Start Time</th>
+                                            <th>End Time</th>
+                                            <th>Description</th>
+                                            <th>Court ID</th>
+                                            <th>Staff ID</th>
+                                        </tr>
 
+                                    </thead>
+                                <c:forEach items="${EventList}" var="event" >
+                                    <tbody>
 
+                                        <tr>
+                                            <td>${event.eventid}</td>
+                                            <td>${event.organizer}</td>
+                                            <td>${event.name}</td>
+                                            <td>${event.eventDate}</td>
+                                            <td>${event.startTime}</td>
+                                            <td>${event.endTime}</td>
+                                            <td>${event.description}</td>
+                                            <td>${event.courtid}</td>
+                                            <td>${event.staffid}</td>
 
-            </div>
+                                          
+                                    </tbody>
+                                </c:forEach>
+                            </table>
 
-        </section>
- 
-</body>
+                            
+
+                        </div>
+
+                    </section>
+                </div>
+            </section>
+    </body>
 </html>
