@@ -30,24 +30,24 @@
 
             <jsp:include page="headerUser.jsp"></jsp:include>
 
-            <section id="banner">
+                <section id="banner">
 
-                <article id="main">
-                    <header>
-                        <h2>COURT SCHEDULE</h2>
-                        <p>You can look at the schedule and book it at the same time</p>
-                    </header>
-                </article>
-            </section>
-            
-            <section class="wrapper style5">
-                <div class="inner">
+                    <article id="main">
+                        <header>
+                            <h2>COURT SCHEDULE</h2>
+                            <p>You can look at the schedule and book it at the same time</p>
+                        </header>
+                    </article>
+                </section>
 
-                    <section>
-                        <form action="/" method="post">
+                <section class="wrapper style5">
+                    <div class="inner">
+
+                        <section>
+                            <form action="${pageContext.request.contextPath}/BookingList" method="post">
                             <div class="row uniform">    
                                 <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="date" id="date" placeholder="Date"/>
+                                    <input type="date" name="date" id="date" value="dd/mm/yyyy" placeholder="Date"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
                                     <div class="select-wrapper" >
@@ -68,249 +68,8 @@
                         </form>
                     </section>
 
-                    <section>
-                        <div class="table-wrapper">                                
-                            <table class="alt">
-                                <thead>
-                                    <tr>
-                                        <th>Time</th>
-                                        <th>Court 1</th>
-                                        <th>Court 2</th>
-                                        <th>Court 3</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>   
-                                        <td class=" header">
-                                            8:00 am - 9:00 am
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="bookingForm.jsp">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            9:00 am - 10:00 am
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            10:00 am - 11:00am
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            11:00 am - 12:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            12:00 pm - 1:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            1:00 pm - 2:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            2:00 pm - 3:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            3:00 pm - 4:00pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            4:00 pm - 5:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>                                     
-
-                                    <tr>   
-                                        <td class=" header">
-                                            5:00 pm - 6:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            6:00 pm - 7:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            7:00 pm - 8:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            8:00 pm - 9:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            9:00 pm - 10:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>
-
-                                    <tr>   
-                                        <td class=" header">
-                                            10:00 pm - 11:00 pm
-                                        </td>
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>   
-                                        <td class="table-data  book-click" title="Click to book">
-                                            <a href="">&nbsp;</a>   
-                                        </td>  
-                                    </tr>                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                </div>
-            </section>
+                    
 
 
-    </body>
-</html>
+                    </body>
+                    </html>
