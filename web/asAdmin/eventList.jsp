@@ -44,36 +44,50 @@
                                 <thead>
                                     <tr>
                                         <th>Event ID</th>
+                                        <th>Event Time</th>
+                                         <th>Court ID</th>
+                                         <th>Staff ID</th>
                                         <th>Event name</th>
                                         <th>Event Date</th>
                                         <th>Event Time</th>
                                         <th>Description</th>
-                                        <th>Staff ID</th>
-                                        <th>Court ID</th>
-                                        <th>Action</th>
+                             
                                     </tr>
 
                                 </thead>
                                 <tbody>
-                                <td>001</td>
-                                <td>Sufkom</td>
-                                <td>31/08/2017</td>
-                                <td>0800am</td>
-                                <td>FC punya</td>
-                                <td>S01</td>
-                                <td>B1</td>
-                                <td><a href="bookingSystem.servlet.manageEvent.EditEventServlet">
+                                <c:forEach items="${EventList}" var="event" >
+                                    <tbody>
+
+                                        <tr>
+                                            <td>${event.eventid}</td>
+                                            <td>${event.timeslot}</td>
+                                            <td>${event.courtid}</td>
+                                            <td>${event.staffid}</td>
+                                            <td>${event.name}</td>
+                                            <td>${event.eventDate}</td>
+                                            <td>${event.description}</td>
+                                      
+                                        </tr>
+                                    <td>
+                                                    <a href="EditUser?username=${event.eventid}">Edit</a>
+                                                    <a href="DeleteUser?username=${event.eventid}">Delete</a>
+                                    </td>
+                                
+                                        <%--   <td><a href="bookingSystem.servlet.manageEvent.EditEventServlet">
                                         <img src="images/pencil-edit-button.png" alt/>
                                     </a>
                                     <a href="bookingSystem.servlet.manageEvent.deleteEventServlet">
                                         <img src="images/rubbish-bin.png" alt/>
                                     </a>
-                                </td>
+                                </td>--%>
+                                        
                                 </tbody>
+                                 </c:forEach>
                             </table>
 
 
-                            <a href="eventBooking.jsp">
+                            <a href="addEvent.jsp">
                                 <img src="images/plus.png" alt/>Add event
                             </a>
 

@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import beans.UserAccount;
 import beans.Admin;
 
+
 public class MyUtils {
 
     public static final String ATT_NAME_CONNECTION = "ATTRIBUTE_FOR_CONNECTION";

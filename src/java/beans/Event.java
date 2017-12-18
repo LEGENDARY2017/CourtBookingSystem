@@ -90,6 +90,10 @@ public class Event {
         this.description = description;
     }
 
+    public String setStaffid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 
     
