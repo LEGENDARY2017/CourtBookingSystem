@@ -3,47 +3,51 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet.manageBooking;
+package servlet;
 
+/**
+ *
+ * @author nsyhd
+ */
 import beans.Booking;
+import servlet.manageEvent.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+ 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+ 
+import beans.Event;
+import java.io.PrintWriter;
 import utils.DBUtils_booking;
+import utils.DBUtils_event;
 import utils.MyUtils;
 
-/**
- *
- * @author Shameera
- */
-@WebServlet(urlPatterns = {"/SortDate"})
-public class SortDateServlet extends HttpServlet {
 
-private static final long serialVersionUID = 1L;
+@WebServlet(urlPatterns = { "/ScheduleList" })
+public class scheduleListServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
  
-    public SortDateServlet() {
+    public scheduleListServlet() {
         super();
     }
  
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Connection conn = MyUtils.getStoredConnection(request);
  
         String errorString = null;
         List<Booking> booking = null;
-        String dateBook = (String) request.getParameter("dateBook");
-        
         try {
-            booking = DBUtils_booking.querySortBooking(conn, dateBook);
+            booking = DBUtils_booking.queryBooking(conn);
         } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             errorString = e.getMessage();
@@ -53,7 +57,7 @@ private static final long serialVersionUID = 1L;
         // Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
         request.setAttribute("BookingList", booking);
-         
+        
         // Forward to /WEB-INF/views/productListView.jsp
         RequestDispatcher dispatcher = request.getServletContext()
                 .getRequestDispatcher("/asAdmin/schedule.jsp");

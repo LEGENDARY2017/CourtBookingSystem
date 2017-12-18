@@ -4,6 +4,12 @@
     Author     : yanaramli22
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,6 +27,7 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
     </head>
 
     <body class="landing">
@@ -43,50 +50,41 @@
                 <section class="wrapper style5">
                     <div class="inner">
 
-                       <section>
+                        <section>
                             <div class="table-wrapper">
-                            
+
                                 <form action="${pageContext.request.contextPath}/SortDate" method="post">
                                 <div class="row uniform">    
-                                   
-                                     <div class="6u 12u$(xsmall)">
-                                        <div class="select-wrapper" >
-                                            <input type="date" name="date">
-                                        </div>
-                                    </div>
+
                                     <div class="6u 12u$(xsmall)">
                                         <div class="select-wrapper" >
-                                            <div class="6u 12u$(xsmall)">
-                                        <div class="select-wrapper" >
-                                            <select  name="faculty">
-                                                <option value="">-Select Available Court-</option>
-                                                <option value="B">Badminton Court</option>
-                                                <option value="P">Ping Pong Court</option>
-                                                <option value="V">Volleyball Court</option>
+                                            <select name="dateBook">
+                                                <c:forEach items="${requestScope.BookingList}" var ="booking">
+                                                    <option value="${booking.dateBook}">${booking.dateBook}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>
-                                        </div>
-                                    </div>
-                                     
+
                                     <div class="6u 12u$">
                                         <ul class="actions">
-                                            <li><input type="submit" class="special" value="Search"/></li>
+                                            <li><input type="submit" class="fit special" value="Search"/></li>
+                                            <li><a href="${pageContext.request.contextPath}/UserList" class="button fit special">Back</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                </form>
-                                <table table="schedule" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Court ID</th>
-                                            <th>Date</th>
-                                            <th>Start Time</th>
-                                            <th>End Time</th>
-                                            
-                                        </tr>
+                            </form>
+                            <table table="schedule" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Court ID</th>
+                                        <th>Date</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
 
-                                    </thead>
+                                    </tr>
+
+                                </thead>
                                 <c:forEach items="${BookingList}" var="booking" >
                                     <tbody>
 
@@ -97,10 +95,9 @@
                                             <td>${booking.end}</td>
 
                                         </tr>
-
-
                                     </tbody>
                                 </c:forEach>
+
                             </table>
                             <ul class="actions">
                                 <li><a href="${pageContext.request.contextPath}/AddBooking" class="button special">Book Court</a></li>                                       
@@ -108,9 +105,11 @@
                         </div>
 
                     </section>
+                </div>
+            </section>
 
-                    
 
 
-                    </body>
-                    </html>
+        </div>
+    </body>
+</html>

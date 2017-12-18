@@ -49,7 +49,7 @@
                         <li>
                             <span>
                                 <img src="images/schedule.png" alt/><br>
-                                <a href="${pageContext.request.contextPath}/BookingList" class="button special">Schedule</a> 
+                                <a href="${pageContext.request.contextPath}/ScheduleList" class="button special">Schedule</a> 
                             </span> 
                         </li>
                         <li>

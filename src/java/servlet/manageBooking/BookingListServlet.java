@@ -45,9 +45,11 @@ public class BookingListServlet extends HttpServlet {
         List<Booking> booking = null;
         try {
             booking = DBUtils_booking.queryBooking(conn);
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             errorString = e.getMessage();
+            PrintWriter out = response.getWriter();
+            out.println("<p style='color: red;'>"+errorString+"</p>");
         }
         // Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
@@ -55,7 +57,7 @@ public class BookingListServlet extends HttpServlet {
          
         // Forward to 
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/asAdmin/schedule.jsp");
+                .getRequestDispatcher("/asAdmin/bookingListAdmin.jsp");
         dispatcher.forward(request, response);
     }
  

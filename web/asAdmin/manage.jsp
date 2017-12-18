@@ -96,7 +96,7 @@
                                     </span>
                                     <br>
                                     <ul class="actions">
-                                        <li><a href="bookingListAdmin.jsp" class="button special">Manage Booking</a></li>                                       
+                                        <li><a href="${pageContext.request.contextPath}/BookingList"  class="button special">Manage Booking</a></li>                                       
                                     </ul>
                                 </li>   
 

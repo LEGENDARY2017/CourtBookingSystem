@@ -53,7 +53,6 @@ public class AddBookingServlet extends HttpServlet {
         String dateBook = (String) request.getParameter("dateBook");
         String start = (String) request.getParameter("start");
         String end = (String) request.getParameter("end");
-        String feedback = (String) request.getParameter("feedback");
         
         Booking booking = new Booking();
 
@@ -78,7 +77,7 @@ public class AddBookingServlet extends HttpServlet {
         // If error, forward to Edit page.
         if (errorString != null) {
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/asAdmin/bookingForm.jsp");
+                    .getRequestDispatcher("/asAdmin/deleteUserError.jsp");
             dispatcher.forward(request, response);
         } // If everything nice.
         // Redirect to the product listing page.
