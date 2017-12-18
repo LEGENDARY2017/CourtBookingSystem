@@ -83,7 +83,7 @@ public class Booking {
     }
 
     public String getEnd() {
-        return start;
+        return end;
     }
 
     public void setEnd(String end) {
