@@ -18,6 +18,9 @@
 --
 -- Table structure for table `admin`
 --
+create database if not exists utmcourt;
+use utmcourt;
+
 
 DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
