@@ -50,8 +50,8 @@
                                 <table table="event" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Court ID <a href="SortCourt?courtid"><img src="images/sort.png"></a></th>
-                                        <th>Court Type <a href="SortCourt?courtType"><img src="images/sort.png"></a></th>
+                                            <th>Court ID <a href="SortCourtid"><img src="images/sort.png"></a></th>
+                                        <th>Court Type <a href="SortCourtType"><img src="images/sort.png"></a></th>
                                         <th>Status </th>
                                         <th>Description </th>
                                         </tr>
