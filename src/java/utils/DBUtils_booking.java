@@ -74,8 +74,8 @@ public class DBUtils_booking {
         return null;
     }
 
-    public static List<Booking> queryBooking(Connection conn) throws SQLException {
-        String sql = "Select * from Booking";
+    /*public static List<Booking> queryBooking(Connection conn) throws SQLException {
+        String sql = "Select * from booking";
 
         PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -88,7 +88,6 @@ public class DBUtils_booking {
             String dateBook = rs.getString("dateBook");
             String start = rs.getString("start");
             String end = rs.getString("end");
-
             String feedback = rs.getString("feedback");
             Booking Booking = new Booking();
             Booking.setCourtid(courtid);
@@ -98,25 +97,61 @@ public class DBUtils_booking {
             Booking.setStart(start);
             Booking.setEnd(end);
             Booking.setFeedback(feedback);
+            
             booking.add(Booking);
         }
         return booking;
+    }*/
+    
+    public static List<Booking> queryBooking(Connection conn) throws SQLException {
+        String sql = "Select * from booking";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        ResultSet rs = pstm.executeQuery();
+        List<Booking> list = new ArrayList<>();
+        while (rs.next()) {
+            String bookingid = rs.getString("bookingid");
+            String courtid = rs.getString("courtid");
+            String username = rs.getString("username");
+            String staffid = rs.getString("staffid");
+            String dateBook = rs.getString("dateBook");
+            String start = rs.getString("start");
+            String end = rs.getString("end");
+            String feedback = rs.getString("feedback");
+            Booking Booking = new Booking();
+            Booking.setBookingid(bookingid);
+            Booking.setCourtid(courtid);
+            Booking.setUsername(username);
+            Booking.setStaffid(staffid);
+            Booking.setDateBook(dateBook);
+            Booking.setStart(start);
+            Booking.setEnd(end);
+            Booking.setFeedback(feedback);
+            
+            list.add(Booking);
+        }
+        return list;
     }
 
-    public static List<Booking> querySortBooking(Connection conn, String dateBook, String courtid) throws SQLException {
-        String sql = "Select * from Booking a where a.dateBook=? and a.courtid=?";
+    public static List<Booking> querySortBooking(Connection conn, String dateBook) throws SQLException {
+        String sql = "Select * from booking a where a.dateBook=?";
 
         PreparedStatement pstm = conn.prepareStatement(sql);
-
+        pstm.setString(1, dateBook);
+        
         ResultSet rs = pstm.executeQuery();
         List<Booking> booking = new ArrayList<>();
         while (rs.next()) {
+            String bookingid = rs.getString("bookingid");
+            String courtid = rs.getString("courtid");
             String username = rs.getString("username");
             String staffid = rs.getString("staffid");
             String start = rs.getString("start");
             String end = rs.getString("end");
             String feedback = rs.getString("feedback");
             Booking Booking = new Booking();
+            Booking.setBookingid(bookingid);
             Booking.setCourtid(courtid);
             Booking.setUsername(username);
             Booking.setStaffid(staffid);
@@ -124,6 +159,7 @@ public class DBUtils_booking {
             Booking.setStart(start);
             Booking.setEnd(end);
             Booking.setFeedback(feedback);
+            
             booking.add(Booking);
         }
         return booking;
@@ -145,17 +181,15 @@ public class DBUtils_booking {
     }
 
     public static void insertBooking(Connection conn, Booking booking) throws SQLException {
-        String sql = "Insert into Booking(bookingid, courtid, username, staffid, dateBook, start, end) values (?,?,?,?,?,?)";
+        String sql = "Insert into Booking(courtid, staffid, dateBook, start, end) values (?,?,?,?,?)";
 
         PreparedStatement pstm = conn.prepareStatement(sql);
 
-        pstm.setString(1, booking.getBookingid());
-        pstm.setString(2, booking.getCourtid());
-        pstm.setString(3, booking.getUsername());
-        pstm.setString(4, booking.getStaffid());
-        pstm.setString(5, booking.getDateBook());
-        pstm.setString(6, booking.getStart());
-        pstm.setString(7, booking.getEnd());
+        pstm.setString(1, booking.getCourtid());
+        pstm.setString(2, booking.getStaffid());
+        pstm.setString(3, booking.getDateBook());
+        pstm.setString(4, booking.getStart());
+        pstm.setString(5, booking.getEnd());
 
         pstm.executeUpdate();
     }
