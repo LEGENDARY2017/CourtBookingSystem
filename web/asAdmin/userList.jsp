@@ -47,6 +47,28 @@
 
                         <section>
                             <div class="table-wrapper">
+                            
+                                <form action="${pageContext.request.contextPath}/SortList" method="post">
+                                <div class="row uniform">    
+                                   
+                                     <div class="6u 12u$(xsmall)">
+                                        <div class="select-wrapper" >
+                                            <select  name="faculty">
+                                                <option value="">-Select Available Faculty-</option>
+                                                <option value="FC">FC</option>
+                                                <option value="FKA">FKA</option>
+                                                <option value="FGHT">FGHT</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="6u 12u$">
+                                        <ul class="actions">
+                                            <li><input type="submit" class="special" value="Search"/></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                </form>
                                 <table table="event" class="table table-striped">
                                     <thead>
                                         <tr>

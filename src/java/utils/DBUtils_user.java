@@ -147,6 +147,35 @@ public class DBUtils_user {
  
         pstm.executeUpdate();
     }
+     
+     public static List<UserAccount> querySortUser(Connection conn, String faculty) throws SQLException {
+        String sql = "Select * from user a where a.faculty =? ";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+        pstm.setString(1, faculty);
+        
+        ResultSet rs = pstm.executeQuery();
+ 
+        List<UserAccount> list = new ArrayList<>();
+        while (rs.next()) {
+            String username = rs.getString("username");
+            String password = rs.getString("password");
+            String name = rs.getString("name");
+            String matricNo = rs.getString("matricNo");
+            String email = rs.getString("email");
+            String contactNo = rs.getString("contactNo");
+            UserAccount user = new UserAccount();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setName(name);
+            user.setMatricNo(matricNo);
+            user.setFaculty(faculty);
+            user.setEmail(email);
+            user.setContactNo(contactNo);
+            list.add(user);
+        }
+        return list;
+    }
  
 }
 
