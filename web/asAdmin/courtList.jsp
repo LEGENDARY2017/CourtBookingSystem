@@ -50,10 +50,10 @@
                                 <table table="event" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Court ID</th>
-                                            <th>Court Type</th>
-                                            <th>Status</th>
-                                            <th>Description</th>
+                                            <th>Court ID <a href="SortCourt?courtid=${court.courtid}"><img src="images/sort.png"></a></th>
+                                        <th>Court Type <a href="SortCourt?courtType=${court.courtType}"><img src="images/sort.png"></a></th>
+                                        <th>Status <a href="SortCourt?status=${court.status}"><img src="images/sort.png"></a></th>
+                                        <th>Description <a href="SortCourt?statusDesc=${court.statusDesc}"><img src="images/sort.png"></a></th>
                                         </tr>
 
                                     </thead>
@@ -67,8 +67,11 @@
                                             <td>${court.statusDesc}</td>
 
                                             <td>
-                                                    <a href="EditCourt?courtid=${court.courtid}" class="button ">Edit</a>
-                                                    <a href="DeleteCourt?courtid=${court.courtid}" class="button ">Delete</a>
+<<<<<<< HEAD
+                                                    <a href="EditCourt?courtid=${court.courtid}"><img src="images/pencil-edit-button.png"></a>
+                                                    <a href="DeleteCourt?courtid=${court.courtid}"><img src="images/rubbish-bin.png"></a>
+=======
+               
                                             </td>
                                         </tr>
 
