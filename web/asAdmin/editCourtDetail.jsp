@@ -25,61 +25,67 @@
     </head>
 
 
-    <body>
-        <section class="wrapper ">
-            <div class="inner">
-                <section>
-                    <h3 class="major">Edit User Detail</h3>
-                    <p style="color: red;">${errorString}</p>
+    <body class="landing">
+        <div id="page-wrapper">
+            <jsp:include page="headerAdmin.jsp"></jsp:include>
 
-                    <c:if test="${not empty court}">
-                        <form action="${pageContext.request.contextPath}/EditCourt" method="post">
+                <article id="main">
+                    <header>
+                        <h2>EDIT COURT DETAILS</h2>
+                    </header>
+                    <section class="wrapper style5">
+                        <div class="inner" >
 
-                            <h1>Court Detail</h1>
-                            <input type="hidden" name="courtid" value="${court.courtid}" />
-                            <div class="row uniform">    
+                            <c:if test="${not empty court}">
+                            <form action="${pageContext.request.contextPath}/EditCourt" method="post">
 
-                                <div class="field half first">
-                                    <label for="courtType">Court Type</label>
-                                    <b>${court.courtType}</b>
+                                <h1>Court Detail</h1>
+                                <input type="hidden" name="courtid" value="${court.courtid}" />
+                                <div class="row uniform">    
+
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="courtType">Court Type</label>
+                                        <b>${court.courtType}</b>
+                                    </div>
+
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="courtType">Change To</label>
+                                        <select  name="courtType" id="courtType">
+                                            <option value="">-Type Of Court-</option>
+                                            <option value="Badminton">Badminton Court</option>
+                                            <option value="PingPong">Ping Pong Court</option>
+                                            <option value="VolleyBall">VolleyBall Court</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="status">Status</label>
+                                        <select  name="status" id="status">
+                                            <option value="">-Status-</option>
+                                            <option value="OPEN">OPEN</option>
+                                            <option value="CLOSED">CLOSED</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="Desciption">Description</label>
+                                        <input type="text" name="statusDesc" id="statusDesc" value="${court.statusDesc}"/>
+                                    </div>
                                 </div>
 
-                                <div class="field half first">
-                                    <label for="courtType">Change To</label>
-                                    <select  name="courtType" id="courtType">
-                                        <option value="Badminton">Badminton Court</option>
-                                        <option value="PingPong">Ping Pong Court</option>
-                                        <option value="VolleyBall">VolleyBall Court</option>
-                                    </select>
-                                </div>
-
-                                <div class="field half first">
-                                    <label for="status">Status</label>
-                                    <select  name="status" id="status">
-                                        <option value="open">Open</option>
-                                        <option value="close">Close</option>
-                                    </select>
-                                </div>
-
-                                <div class="field half first">
-                                    <label for="Desciption">Description</label>
-                                    <input type="text" name="statusDesc" id="statusDesc" value="${court.statusDesc}"/>
-                                </div>
-                            </div>
-                            <div class="field half first">
                                 <br>
-                                <ul class="actions">
-                                    <li><input type="submit" value="Submit" class="special" /></li>
-                                    <li><a href="${pageContext.request.contextPath}/CourtList">Cancel</a></li>
-                                </ul>
-                            </div>
-                        </form>
-                    </c:if>
+
+                                <div class="12u">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Submit" class="fit special" /></li>
+                                        <li><a href="${pageContext.request.contextPath}/CourtList" class="button fit special">Cancel</a></li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </c:if>
+                    </div>
                 </section>
-
-            </div>
-        </section>
-    </article>
-
-</body>
+            </article>
+        </div>
+    </body>
 </html>

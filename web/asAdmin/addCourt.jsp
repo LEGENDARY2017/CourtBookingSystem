@@ -74,8 +74,9 @@
                                      <div class="6u 12u$(xsmall)">
                                         <div class="select-wrapper" >
                                             <select  name="status">
-                                                <option value="open">Open</option>
-                                                <option value="close">Close</option>
+                                                <option value="">-Status-</option>
+                                                <option value="OPEN">OPEN</option>
+                                                <option value="CLOSED">CLOSED</option>
                                             </select>
                                         </div>
                                     </div>

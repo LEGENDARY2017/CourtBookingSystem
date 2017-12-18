@@ -67,8 +67,11 @@
                                             <td>${court.statusDesc}</td>
 
                                             <td>
+<<<<<<< HEAD
                                                     <a href="EditCourt?courtid=${court.courtid}"><img src="images/pencil-edit-button.png"></a>
                                                     <a href="DeleteCourt?courtid=${court.courtid}"><img src="images/rubbish-bin.png"></a>
+=======
+               
                                             </td>
                                         </tr>
 
@@ -76,9 +79,10 @@
                                     </tbody>
                                 </c:forEach>
                             </table>
-
-                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/CreateCourt" >Add Court </a>                       
-
+                                
+                                <ul class="actions">
+                                    <li><a href="${pageContext.request.contextPath}/CreateCourt" class="button special">Add Court</a></li>                                       
+                                </ul>
                         </div>
 
                     </section>
