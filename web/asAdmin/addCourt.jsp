@@ -28,26 +28,7 @@
         <!-- Wrapper -->
         <div id="page-wrapper">
 
-            <!-- Header -->
-            <header id="header" class="alt">
-                <h1><a href="homeview.jsp">UTM Court Booking</a></h1>
-                <nav id="nav">
-                    <ul>
-                        <li class="special">
-                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                            <div id="menu">
-                                <ul>
-                                    <li><a href="homeview.jsp">Home</a></li>
-                                    <li><a href="schedule.jsp">Schedule</a></li>
-                                    <li><a href="event.jsp">Event</a></li>
-                                    <li><a href="history/reportType.jsp">History</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-
+            <jsp:include page="headerAdmin.jsp"></jsp:include>
             <article id="main">
                 <header>
                     <h2>ADD COURT</h2>

@@ -61,12 +61,6 @@
                     </ul>
                     <ul class="icons major actions">
                         <li>
-                            <span>
-                                <img src="images/history.png" alt/><br>
-                                <a href="adminHistory.jsp" class="button special">History</a>   
-                            </span>
-                        </li>
-                        <li>
                             <span>                                
                                 <img src="images/manage.png" alt/><br>  
                                 <a href="asAdmin/manage.jsp" class="button special">Manage System</a>    

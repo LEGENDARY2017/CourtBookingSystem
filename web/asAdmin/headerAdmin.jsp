@@ -17,9 +17,8 @@
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/HomeAdmin">Home</a></li>
                         <li><a href="${pageContext.request.contextPath}/ProfileAdmin">Profile Admin</a></li>
-                        <li><a href="schedule.jsp">Schedule</a></li>
-                        <li><a href="eventAdmin.jsp">Event</a></li>
-                        <li><a href="adminHistory.jsp">History</a></li>
+                        <li><a href="${pageContext.request.contextPath}/ScheduleList">Schedule</a></li>
+                        <li><a href="${pageContext.request.contextPath}/EventList">Event</a></li>
                         <li><a href="manage.jsp">Manage System</a></li>   
                         <li><a href="LogoutServlet">Logout</a></li>   
                     </ul>

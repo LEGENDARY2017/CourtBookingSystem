@@ -46,7 +46,7 @@
                         <section>
                             <form action="${pageContext.request.contextPath}/BookingList" method="post">
                             <div class="row uniform">    
-                                <div class="6u 12u$(xsmall)">
+                                <div class="6u 12u$(xsmall)" style="color: fa-calendar">
                                     <input type="date" name="date" id="date" value="dd/mm/yyyy" placeholder="Date"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
