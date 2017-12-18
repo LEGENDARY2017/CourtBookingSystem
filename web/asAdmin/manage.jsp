@@ -28,8 +28,31 @@
         <!-- Wrapper -->
         <div id="page-wrapper">
 
-            <jsp:include page="headerAdmin.jsp"></jsp:include>
-            
+            <!-- Header -->
+            <header id="header" class="alt">
+                <h1><a href="index.jsp">UTM Court Booking</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+                                    <li><a href="${pageContext.request.contextPath}/HomeAdmin">Home</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/ProfileAdmin">Profile Admin</a></li>
+                                    <li><a href="schedule.jsp">Schedule</a></li>
+                                    <li><a href="eventAdmin.jsp">Event</a></li>
+                                    <li><a href="adminHistory.jsp">History</a></li>
+                                    <li><a href="manage.jsp">Manage System</a></li>   
+                                    <li><a href="LogoutServlet">Logout</a></li>   
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+
+            </header>
+
             <article id="main">
                 <header>
                     <h2>Manage System</h2>
@@ -76,13 +99,13 @@
                                         <li><a href="bookingListAdmin.jsp" class="button special">Manage Booking</a></li>                                       
                                     </ul>
                                 </li>   
-                              
+
                             </ul>
                         </section>
 
                     </div>
                 </section>
             </article>
-
+        </div>
     </body>
 </html>

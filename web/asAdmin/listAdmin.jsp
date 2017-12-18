@@ -27,67 +27,60 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-
-
     </head>
 
+    <body  class="landing">
+
+        <div id="page-wrapper">
+
+            <jsp:include page="headerAdmin.jsp"></jsp:include>
+
+                <article id="main">
+                    <header>
+                        <h2>List of Admin</h2>
+                        <p></p>
+                    </header>
+                    <section class="wrapper style5">
+                        <div class="inner">
+
+                            <section>
+                                <div class="table-wrapper">
+                                    <table table="event" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Staff ID</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Contact Number</th>
+                                            </tr>
+
+                                        </thead>
+                                    <c:forEach items="${adminList}" var="admin" >
+                                        <tbody>
+
+                                            <tr>
+                                                <td>${admin.staffid}</td>
+                                                <td>${admin.name}</td>
+                                                <td>${admin.email}</td>
+                                                <td>${admin.contactNo}</td>
+
+                                                <td>
+                                                    <a href="EditAdmin?staffid=${admin.staffid}" class="button ">Edit</a>
+                                                    <a href="DeleteAdmin?staffid=${admin.staffid}" class="button ">Delete</a>
+                                                </td>
+                                            </tr>
 
 
-    <body class="landing">
+                                        </tbody>
+                                    </c:forEach>
+                                </table>
+                                <ul class="actions">
+                                    <li><a href="asAdmin/addAdmin.jsp" class="button special">Add Admin</a></li>                                       
+                                </ul>
 
-        <jsp:include page="headerAdmin.jsp"></jsp:include>
-
-            <article id="main">
-                <header>
-                    <h2>List of Admin</h2>
-                    <p></p>
-                </header>
-                <section class="wrapper style5">
-                    <div class="inner">
-
-                        <section>
-                            <div class="table-wrapper">
-                                <table table="event" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Staff ID</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Contact Number</th>
-                                        </tr>
-
-                                    </thead>
-                                <c:forEach items="${adminList}" var="admin" >
-                                    <tbody>
-
-                                        <tr>
-                                            <td>${admin.staffid}</td>
-                                            <td>${admin.name}</td>
-                                            <td>${admin.email}</td>
-                                            <td>${admin.contactNo}</td>
-
-                                            <td>
-                                                <button id="myBtn1" class="button" >Edit</button>
-                                                    <a href="DeleteAdmin?staffid=${admin.staffid}">Delete</a>
-                                            </td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </c:forEach>
-                            </table>
-
-                            <ul class="actions">
-                                <li><button id="myBtn" class="button">Add Admin</button></li>   
-                            </ul>   
-
-                            <jsp:include page="addAdmin.jsp"></jsp:include>
-                            <jsp:include page="EditAdmin?staffid=${admin.staffid}"></jsp:include>
-
-                        </div>
-
-                    </section>
-                </div>
-            </section>
+                        </section>
+                    </div>
+                </section>
+        </div>
     </body>
 </html>
