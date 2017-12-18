@@ -42,6 +42,52 @@ public class DBUtils_court {
         }
         return list;
     }
+       
+       public static List<Court> sortCourtid(Connection conn) throws SQLException {
+        String sql = "Select * from court ORDER BY courtid ASC ";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        ResultSet rs = pstm.executeQuery();
+        List<Court> list = new ArrayList<>();
+        while (rs.next()) {
+            String courtid = rs.getString("courtid");
+            String courtType = rs.getString("courtType");
+            String status = rs.getString("status");
+            String statusDesc = rs.getString("statusDesc");
+            Court court = new Court();
+            court.setCourtid(courtid);
+            court.setCourtType(courtType);
+            court.setStatus(status);
+            court.setStatusDesc(statusDesc);
+            
+            list.add(court);
+        }
+        return list;
+    }
+       
+       public static List<Court> sortCourttype(Connection conn) throws SQLException {
+        String sql = "Select * from court ORDER BY courtType ASC ";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        ResultSet rs = pstm.executeQuery();
+        List<Court> list = new ArrayList<>();
+        while (rs.next()) {
+            String courtid = rs.getString("courtid");
+            String courtType = rs.getString("courtType");
+            String status = rs.getString("status");
+            String statusDesc = rs.getString("statusDesc");
+            Court court = new Court();
+            court.setCourtid(courtid);
+            court.setCourtType(courtType);
+            court.setStatus(status);
+            court.setStatusDesc(statusDesc);
+            
+            list.add(court);
+        }
+        return list;
+    }
  
     public static Court findCourt(Connection conn, String courtid) throws SQLException {
         String sql = "Select * from court a where a.courtid=?";

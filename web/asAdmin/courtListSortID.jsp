@@ -86,6 +86,5 @@
                     </section>
                 </div>
             </section>
-        </article>
     </body>
 </html>
