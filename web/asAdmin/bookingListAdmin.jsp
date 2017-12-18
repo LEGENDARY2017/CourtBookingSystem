@@ -77,8 +77,8 @@
                                             <td>${booking.feedback}</td>
 
                                             <td>
-                                                <a href="EditUser?username=${user.username}" class="button ">Edit</a>
-                                                <a href="DeleteUser?username=${user.username}" class="button ">Delete</a>
+                                                <a href="EditBooking?bookingid=${booking.bookingid}" class="button ">Edit</a>
+                                                <a href="DeleteBooking?bookingid=${booking.bookingid}" class="button ">Delete</a>
                                             </td>
                                         </tr>
 

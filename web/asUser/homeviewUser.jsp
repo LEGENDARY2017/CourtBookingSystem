@@ -51,7 +51,7 @@
                                 <img src="images/schedule.png" alt/>                                
                             </span>
                             <ul class="actions">
-                                <li><a href="asUser/schedule.jsp" class="button special">Schedule</a></li>                                       
+                                <li><a href="${pageContext.request.contextPath}/ScheduleList" class="button special">Schedule</a></li>                                       
                             </ul>
                         </li>
                         <li>

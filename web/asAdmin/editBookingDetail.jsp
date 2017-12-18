@@ -1,7 +1,7 @@
 <%-- 
-    Document   : editBookingDetail
-    Created on : Dec 18, 2017, 12:13:40 AM
-    Author     : Shameera
+Document   : editprofile
+Created on : Nov 28, 2017, 2:23:11 AM
+Author     : yanaramli22
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,46 +22,65 @@
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
     </head>
-    <body>
 
-        <section class="wrapper ">
-            <div class="inner">
-                <section>
-                    <h3 class="major">Edit Booking Detail</h3>
-                    <p style="color: red;">${errorString}</p>
+    <body class="landing">
+        <div id="page-wrapper">
+            <jsp:include page="headerAdmin.jsp"></jsp:include>
 
-                    <c:if test="${not empty booking}">
-                        <form action="${pageContext.request.contextPath}/EditBooking" method="post">
+                <article id="main">
+                    <header>
+                        <h2>EDIT BOOKING DETAILS</h2>
+                    </header>
+                    <section class="wrapper style5">
 
-                            <h1>Booking Detail</h1>
-                            <div class="field half first">
-                                <input type="hidden" name="bookingid" value="${booking.bookingid}" />
-                                <input type="hidden" name="staffid" value="${booking.staffid}" />
-                                <h6>
-                                    <label for="courtid">Staff ID</label>
-                                    <b>${booking.staffid}</b>
-                                </h6>
-                            </div>
+                        <div class="inner">
 
+                            <c:if test="${not empty booking}">
+                            <form action="${pageContext.request.contextPath}/EditBooking" method="post">
 
-                            <div class="field half first">
-                                <label for="courtid"></label>
-                                <c:forEach items="${courtList}" var="courtid" >
-                                    <select name="courtid" id="courtid">
-                                        <option><b>${court.courtType} ${court.courtid}</b></option>
-                                    </select>
-                                </c:forEach>
-                            </div>
-                            <br>
-                            <div class="field half first">
-                                <ul class="actions">
-                                    <li><input type="submit" value="Submit" class="special" /></li>
-                                    <li><a href="${pageContext.request.contextPath}/bookingListAdmin">Cancel</a></li>
-                                </ul
-                            </div>  
+                                <h1>BOOKING Details</h1>
 
-                        </form>
+                                <div class="row uniform">
+
+                                    <input type="hidden" name="bookingid" value="${booking.bookingid}" />
+                                    
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="staffid" >Staff ID</label>
+                                        <input type="text" name="staffid" id="staffid" value="${booking.staffid}" disabled/>
+                                    </div>
+
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="username">username</label>
+                                        <input type="text" name="username" id="username" value="${booking.username}" disabled/>
+                                    </div>
+
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="dateBook">Date to Book</label>
+                                        <input type="text" name="dateBook" id="dateBook" value="${booking.dateBook}"/>
+                                    </div>
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="start">Start</label>
+                                        <input type="text" name="start" id="start" value="${booking.start}"/>
+                                    </div>
+                                    <div class="6u 12u(xsmall)">
+                                        <label for="end">End</label>
+                                        <input type="text" name="end" id="end" value="${booking.end}"/>
+                                    </div>
+                                    <br>   
+
+                                    <div class="12u">
+                                        <ul class="actions">
+                                            <li><input type="submit" value="Submit" class="fit special" /></li>
+                                            <li><a href="${pageContext.request.contextPath}/BookingList" class="button fit special">Cancel</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </c:if>
+                    </div>
                 </section>
-            </div>
+            </article>
+        </div>
     </body>
 </html>
+

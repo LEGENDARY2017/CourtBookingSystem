@@ -45,10 +45,10 @@ public class EditBookingServlet extends HttpServlet {
  
         String errorString = null;
  
-        try {
-            booking = DBUtils_booking.findBooking(conn, bookingid);
-        } catch (SQLException e) {
-            e.printStackTrace();
+       try {
+       booking = DBUtils_booking.findBooking(conn, bookingid);
+       } catch (SQLException e) {
+         e.printStackTrace();
             errorString = e.getMessage();
         }
  
@@ -56,16 +56,16 @@ public class EditBookingServlet extends HttpServlet {
         // The product does not exist to edit.
         // Redirect to productList page.
         if (errorString != null && booking == null) {
-            response.sendRedirect(request.getServletPath() + "/editBookingDetail");
+            response.sendRedirect(request.getServletPath() + "/BookingList");
             return;
         }
  
         // Store errorString in request attribute, before forward to views.
         request.setAttribute("errorString", errorString);
-        request.setAttribute("BookingList", booking);
+        request.setAttribute("booking", booking);
  
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/asAdmin/bookingListAdmin.jsp");
+                .getRequestDispatcher("/asAdmin/editBookingDetail.jsp");
         dispatcher.forward(request, response);
  
     }
@@ -85,7 +85,7 @@ public class EditBookingServlet extends HttpServlet {
         String end = (String) request.getParameter("end");
         String feedback = (String) request.getParameter("feedback");
         
-        Booking booking = new Booking(courtid, staffid, username, dateBook, start, end, feedback);
+        Booking booking = new Booking ( courtid,  username,  staffid,  dateBook,  start,  end,  feedback);
  
         String errorString = null;
  
@@ -97,12 +97,12 @@ public class EditBookingServlet extends HttpServlet {
         }
         // Store infomation to request attribute, before forward to views.
         request.setAttribute("errorString", errorString);
-        request.setAttribute("BookingList", booking);
+        request.setAttribute("booking", booking);
  
         // If error, forward to Edit page.
         if (errorString != null) {
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/asAdmin/editBookingDetail.jsp");
+                    .getRequestDispatcher("/asAdmin/deleteUserError.jsp");
             dispatcher.forward(request, response);
         }
         // If everything nice.
@@ -111,4 +111,5 @@ public class EditBookingServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/BookingList");
         }
     }
+ 
 }

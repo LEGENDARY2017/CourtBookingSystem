@@ -85,7 +85,7 @@ public class AddBookingServlet extends HttpServlet {
         // If everything nice.
         // Redirect to the product listing page.
         else {
-            response.sendRedirect(request.getContextPath() + "/BookingList");
+            response.sendRedirect(request.getContextPath() + "/ScheduleList");
         }
     }
 }

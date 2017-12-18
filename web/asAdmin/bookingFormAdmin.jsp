@@ -38,7 +38,6 @@
                     <div class="inner">
                         <section>
                             <form method="post" action="${pageContext.request.contextPath}/AddBooking">
-
                                 <div class="row uniform">    
                                     <div class="4u 12u$(xsmall)">
                                         <input type="text" name="courtid" id="courtid" placeholder="Court ID"/>
@@ -47,59 +46,27 @@
                                         <input type="text" name="staffid" id="staffid" placeholder="Staff ID"/>
                                     </div>
                                     <div class="4u 12u$(xsmall)">
-                                        <input type="date" name="date" id="date" placeholder="Date"/>
+                                        <input type="text" name="username" id="username" placeholder="Username"/>
                                     </div>
-                                    <div class="field half first">
-                                        <label for="start">Start Time</label>
-                                        <div class="select-wrapper">
-                                            <select name="start" id="start">
-                                                <option value="1">8AM</option>
-                                                <option value="2">9AM</option>
-                                                <option value="3">10AM</option>
-                                                <option value="4">11AM</option>
-                                                <option value="5">12PM</option>
-                                                <option value="6">1PM</option>
-                                                <option value="7">2PM</option>
-                                                <option value="8">3PM</option>
-                                                <option value="9">4PM</option>
-                                                <option value="10">5PM</option>
-                                                <option value="10">6PM</option>
-                                                <option value="10">7PM</option>
-                                                <option value="10">8PM</option>
-                                                <option value="10">9PM</option>
-                                                <option value="10">10PM</option>
-                                                <option value="10">11PM</option>
-                                            </select>
-                                        </div>
+                                    <div class="12u 12u$(xsmall)">
+                                        <input type="text" name="dateBook" id="dateBook" placeholder="Date to book"/>
+                                    </div>
+                                    <div class="4u 12u$(xsmall)">
+                                        <input type="text" name="start" id="start" placeholder="Start time"/>
+                                    </div>
+                                    <div class="4u 12u$(xsmall)">
+                                        <input type="text" name="end" id="end" placeholder="End Time"/>
+                                    </div>
+                                    
 
-                                        <div class="field half first">
-                                            <label for="end">End Time</label>
-                                            <div class="select-wrapper">
-                                                <select name="end" id="end">
-                                                    <option value="1">8AM</option>
-                                                    <option value="2">9AM</option>
-                                                    <option value="3">10AM</option>
-                                                    <option value="4">11AM</option>
-                                                    <option value="5">12PM</option>
-                                                    <option value="6">1PM</option>
-                                                    <option value="7">2PM</option>
-                                                    <option value="8">3PM</option>
-                                                    <option value="9">4PM</option>
-                                                    <option value="10">5PM</option>
-                                                    <option value="10">6PM</option>
-                                                    <option value="10">7PM</option>
-                                                    <option value="10">8PM</option>
-                                                    <option value="10">9PM</option>
-                                                    <option value="10">10PM</option>
-                                                    <option value="10">11PM</option>
-                                                </select>
-                                            </div>
-                                        </div><br>
+                                    <div class="12u">
                                         <ul class="actions">
-                                            <li><input type="submit" value="Submit" class="special" /></li>
-                                            <li><input type="reset" value="Reset" /></li>
+                                            <li><input type="submit" value="Add Booking" class="fit special" /></li>
+                                            <li><input type="reset"  value="Reset" class=" fit special"/></li>
                                         </ul>
-                                        </form>
+                                    </div>
+                                </div>
+                            </form>
                                         </section>
                                     </div>
                                     </section>

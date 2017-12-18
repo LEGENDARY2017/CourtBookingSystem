@@ -69,7 +69,7 @@
                                     <div class="6u 12u$">
                                         <ul class="actions">
                                             <li><input type="submit" class="fit special" value="Search"/></li>
-                                            <li><a href="${pageContext.request.contextPath}/UserList" class="button fit special">Back</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/ScheduleList" class="button fit special">Back</a></li>
                                         </ul>
                                     </div>
                                 </div>
