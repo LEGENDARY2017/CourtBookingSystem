@@ -22,68 +22,47 @@
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
     </head>
-    <body>
+    <body class="landing">
         <jsp:include page="headerAdmin.jsp"></jsp:include>
-        <section class="wrapper ">
-            <div class="inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                            <A href="UpdateAdminProfile?staffid=${admin.staffid}">Edit Profile</A>
+            <article id="main">
+                <header>
+                    <h2>Profile</h2>
+                    <p></p>
+                </header>
+                <section class="wrapper style5">
+                    <div class="inner">
+                        <section>
+                            <c:if test="${not empty admin}">
+                            <div>
+                                <center><h2>${admin.name}</h2>
+                                    <img src="images/user.png"><br>
+                                    <a href="UpdateAdminProfile?staffid=${admin.staffid}" class="button">Edit Profile</a></center>
+                            </div>
+                            <div class=" col-md-9 col-lg-9 "> 
+                                <table class="table table-user-information">
+                                    <tbody>
 
-                            <br>
+                                        <tr>
+                                            <td>Password:</td>
+                                            <td>${admin.password}</td>
+                                        </tr>
 
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td>${admin.email}</td>
+                                        </tr>
 
-
-
-                            <div class="panel panel-info">
-                                <p style="color: red;">${errorString}</p>
-
-                                 <c:if test="${not empty admin}">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Admin Profile</h3>
-                                </div>
-                                
-                                
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="/images/female.png" class="img-circle img-responsive"> </div>
-                                        
-                                        
-                                        <div class=" col-md-9 col-lg-9 "> 
-                                            <table class="table table-user-information">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Name:</td>
-                                                        <td>${admin.name}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Password:</td>
-                                                        <td>${admin.password}</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td>Email:</td>
-                                                        <td>${admin.email}</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Contact Number:</td>
-                                                        <td>${admin.contactNo}</td>
-                                                    </tr>
-
-
-
-                                                </tbody>
-                                            </table>
-                                            </c:if>
-                                           
-
-                                        </div>
-
-                                        </section>
-                                    </div>
-                                    </body>
-                                    </html>
+                                        <tr>
+                                            <td>Contact Number:</td>
+                                            <td>${admin.contactNo}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </c:if>
+                    </section>
+                </div>
+            </section>
+        </article>
+    </body>
+</html>
