@@ -74,17 +74,16 @@
                                         <input type="text" name="username" id="username" placeholder="Username"/>
                                     </div>
                                     <div class="4u 12u$(xsmall)">
-                                        <input type="text" name="password" id="password" placeholder="Password"/>
+                                        <input type="password" name="password" id="password" placeholder="Password"/>
                                     </div>
                                     <div class="4u 12u$(xsmall)">
                                         <input type="text" name="contactNo" id="contactNo" placeholder="Contact Number"/>
                                     </div>
-                                    
-                                    
-                                    
-                                    <div class="6u 12u$">
+
+                                    <div class="12u">
                                         <ul class="actions">
-                                            <li><input type="submit" class="special" value="Add New User"/></li>
+                                            <li><input type="submit" value="Add New User" class="fit special" /></li>
+                                            <li><input type="reset"  value="Reset" class=" fit special"/></li>
                                         </ul>
                                     </div>
                                 </div>

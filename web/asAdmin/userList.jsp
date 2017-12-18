@@ -71,8 +71,8 @@
                                             <td>${user.contactNo}</td>
 
                                             <td>
-                                                    <a href="EditUser?username=${user.username}">Edit</a>
-                                                    <a href="DeleteUser?username=${user.username}">Delete</a>
+                                                <a href="EditUser?username=${user.username}" class="button ">Edit</a>
+                                                <a href="DeleteUser?username=${user.username}" class="button ">Delete</a>
                                             </td>
                                         </tr>
 
@@ -80,9 +80,9 @@
                                     </tbody>
                                 </c:forEach>
                             </table>
-
-                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/CreateUser" >Add User </a>                       
-
+                            <ul class="actions">
+                                <li><a href="${pageContext.request.contextPath}/CreateUser" class="button special">Add User</a></li>                                       
+                            </ul>
                         </div>
 
                     </section>
