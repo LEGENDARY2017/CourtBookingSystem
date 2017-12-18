@@ -59,7 +59,7 @@ public class DeleteEventServlet extends HttpServlet {
         // If everything nice.
         // Redirect to the product listing page.        
         else {
-            response.sendRedirect(request.getContextPath() + "/eventList");
+            response.sendRedirect(request.getContextPath() + "/EventList");
         }
  
     }

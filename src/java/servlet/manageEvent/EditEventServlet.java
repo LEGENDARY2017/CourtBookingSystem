@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 import beans.Event;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.DBUtils_event;
 import utils.MyUtils;
  
@@ -55,7 +57,7 @@ public EditEventServlet() {
         // The product does not exist to edit.
         // Redirect to productList page.
         if (errorString != null && event == null) {
-            response.sendRedirect(request.getServletPath() + "/eventList");
+            response.sendRedirect(request.getServletPath() + "/EventList");
             return;
         }
  
@@ -76,19 +78,25 @@ public EditEventServlet() {
             throws ServletException, IOException {
         Connection conn = MyUtils.getStoredConnection(request);
  
-        String eventid = (String) request.getParameter("eventid");
-        String timeslot = (String) request.getParameter("timeslot");
-        String courtid = (String) request.getParameter("courtid");
-        String staffid = (String) request.getParameter("staffid");
-        String name = (String) request.getParameter("name");
-        String eventDate = (String) request.getParameter("eventDate");
-        String description = (String) request.getParameter("description");
-        
-        Event event = new Event (eventid, timeslot, courtid, staffid, name, eventDate, description );
+       String eventid = (String) request.getParameter("eventid");
+        String organizer =(String) request.getParameter("organizer"); 
+        String name =(String) request.getParameter("name");
+        String eventDate =(String) request.getParameter("eventDate");
+        String startTime =(String) request.getParameter("startTime");
+        String endTime =(String) request.getParameter("endTime");
+        String description =(String) request.getParameter("description");
+        String courtid =(String) request.getParameter("courtid");
+        String staffid =(String) request.getParameter("staffid");
+        Event event = new Event ( eventid, organizer, name, eventDate, startTime, endTime, description, courtid, staffid);
  
         String errorString = null;
  
-        DBUtils_event.updateEvent(conn, event);
+        try {
+            DBUtils_event.updateEvent(conn, event);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            errorString = e.getMessage();
+        }
         // Store infomation to request attribute, before forward to views.
         request.setAttribute("errorString", errorString);
         request.setAttribute("event", event);
@@ -96,13 +104,13 @@ public EditEventServlet() {
         // If error, forward to Edit page.
         if (errorString != null) {
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/asAdmin/editEventDetail.jsp");
+                    .getRequestDispatcher("/asAdmin/deleteUserError.jsp");
             dispatcher.forward(request, response);
         }
         // If everything nice.
         // Redirect to the product listing page.
         else {
-            response.sendRedirect(request.getContextPath() + "/eventList");
+            response.sendRedirect(request.getContextPath() + "/EventList");
         }
     }
  

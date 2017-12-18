@@ -12,28 +12,31 @@ package beans;
 public class Event {
 
     private String eventid;
-    private String timeslot;
-    private String courtid;
-    private String staffid;
+    private String organizer;
     private String name;
     private String eventDate;
+    private String startTime;
+    private String endTime;
     private String description;
+    private String courtid;
+    private String staffid;
 
     public Event() {
 
     }
 
-    public Event(String eventid, String timeslot, String courtid, String staffid, String name, String eventDate, String description) {
+    public Event(String eventid, String organizer, String name, String eventDate, String startTime, String endTime, String description, String courtid, String staffid) {
         this.eventid = eventid;
-        this.timeslot = timeslot;
-        this.courtid = courtid;
-        this.staffid = staffid;
+        this.organizer = organizer;
         this.name = name;
         this.eventDate = eventDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.description = description;
+        this.courtid = courtid;
+        this.staffid = staffid;
 
     }
-
     public String getEventid() {
         return eventid;
     }
@@ -42,28 +45,12 @@ public class Event {
         this.eventid = eventid;
     }
 
-    public String getTimeslot() {
-        return timeslot;
+    public String getOrganizer() {
+        return organizer;
     }
 
-    public void setTimeslot(String timeslot) {
-        this.timeslot = timeslot;
-    }
-    
-    public String getCourtid() {
-        return courtid;
-    }
-
-    public void setCourtid(String courtid) {
-        this.courtid = courtid;
-    }
-    
-    public String getStaffid() {
-        return staffid;
-    }
-
-    public void setStaffid(String staffid) {
-        this.staffid = staffid;
+    public void setOrganizer(String organizer) {
+        this.organizer = organizer;
     }
 
     public String getName() {
@@ -82,6 +69,22 @@ public class Event {
         this.eventDate = eventDate;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+    
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -90,12 +93,21 @@ public class Event {
         this.description = description;
     }
 
-    public String setStaffid() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getCourtid() {
+        return courtid;
     }
 
-    
+    public void setCourtid(String courtid) {
+        this.courtid = courtid;
+    }
 
-    
+    public String getStaffid() {
+        return staffid;
+    }
+
+    public void setStaffid(String staffid) {
+        this.staffid = staffid;
+    }
+
 
 }

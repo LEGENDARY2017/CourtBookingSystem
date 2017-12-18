@@ -25,71 +25,61 @@
     </head>
 
 
+ <body class="landing">
 
-    <body class="landing">
-        
         <jsp:include page="headerAdmin.jsp"></jsp:include>
-        
-        <article id="main">
-            <header>
-                <h2>Event</h2>
-                <p></p>
-            </header>
-            <section class="wrapper style5">
-                <div class="inner">
 
-                    <section>
-                        <div class="table-wrapper">
-                            <table table="event" class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Event ID</th>
-                                        <th>Event Time</th>
-                                         <th>Court ID</th>
-                                         <th>Staff ID</th>
-                                        <th>Event name</th>
-                                        <th>Event Date</th>
-                                        <th>Event Time</th>
-                                        <th>Description</th>
-                             
-                                    </tr>
+            <article id="main">
+                <header>
+                    <h2>List of Event</h2>
+                    <p></p>
+                </header>
+                <section class="wrapper style5">
+                    <div class="inner">
 
-                                </thead>
-                                <tbody>
+                        <section>
+                            <div class="table-wrapper">
+                                <table table="event" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Event ID</th>
+                                            <th>Event Organizer</th>
+                                            <th>Event Name</th>
+                                            <th>Date</th>
+                                            <th>Start Time</th>
+                                            <th>End Time</th>
+                                            <th>Description</th>
+                                            <th>Court ID</th>
+                                            <th>Staff ID</th>
+                                        </tr>
+
+                                    </thead>
                                 <c:forEach items="${EventList}" var="event" >
                                     <tbody>
 
                                         <tr>
                                             <td>${event.eventid}</td>
-                                            <td>${event.timeslot}</td>
-                                            <td>${event.courtid}</td>
-                                            <td>${event.staffid}</td>
+                                            <td>${event.organizer}</td>
                                             <td>${event.name}</td>
                                             <td>${event.eventDate}</td>
+                                            <td>${event.startTime}</td>
+                                            <td>${event.endTime}</td>
                                             <td>${event.description}</td>
-                                      
+                                            <td>${event.courtid}</td>
+                                            <td>${event.staffid}</td>
+
+                                            <td>
+                                                    <a href="EditEvent?eventid=${event.eventid}">Edit</a>
+                                                    <a href="DeleteEvent?eventid=${event.eventid}">Delete</a>
+                                            </td>
                                         </tr>
-                                    <td>
-                                                    <a href="EditUser?username=${event.eventid}">Edit</a>
-                                                    <a href="DeleteUser?username=${event.eventid}">Delete</a>
-                                    </td>
-                                
-                                        <%--   <td><a href="bookingSystem.servlet.manageEvent.EditEventServlet">
-                                        <img src="images/pencil-edit-button.png" alt/>
-                                    </a>
-                                    <a href="bookingSystem.servlet.manageEvent.deleteEventServlet">
-                                        <img src="images/rubbish-bin.png" alt/>
-                                    </a>
-                                </td>--%>
-                                        
-                                </tbody>
-                                 </c:forEach>
+
+
+                                    </tbody>
+                                </c:forEach>
                             </table>
 
-
-                            <a href="addEvent.jsp">
-                                <img src="images/plus.png" alt/>Add event
-                            </a>
+                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/CreateEvent" >Add Event </a>                       
 
                         </div>
 

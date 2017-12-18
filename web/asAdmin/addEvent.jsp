@@ -63,7 +63,27 @@
                                     </div>
                                     
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="timeslot" id="timeslot" placeholder="Timeslot"/>
+                                        <input type="text" name="organizer" id="organizer" placeholder="Organizer"/>
+                                    </div>
+                                    
+                                    <div class="6u 12u$(xsmall)">
+                                        <input type="text" name="name" id="name" placeholder="Event Name"/>
+                                    </div>
+                                    
+                                    <div class="6u 12u$(xsmall)">
+                                        <input type="text" name="eventDate" id="eventDate" placeholder="Event Date YYYY/MM/DD"/>
+                                    </div>
+                                    
+                                    <div class="6u 12u$(xsmall)">
+                                        <input type="text" name="startTime" id="startTime" placeholder="Start Time HHMM"/>
+                                    </div>
+                                    
+                                    <div class="6u 12u$(xsmall)">
+                                        <input type="text" name="endTime" id="endTime" placeholder="End Time HHMM"/>
+                                    </div>
+                                    
+                                    <div class="6u 12u$(xsmall)">
+                                        <input type="text" name="description" id="description" placeholder="Description"/>
                                     </div>
                                     
                                     <div class="6u 12u$(xsmall)">
@@ -73,35 +93,7 @@
                                     <div class="6u 12u$(xsmall)">
                                         <input type="text" name="staffid" id="staffid" placeholder="Staff ID"/>
                                     </div>
-                                
-                                    <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="name" id="name" placeholder="Event Name"/>
-                                    </div>
                                     
-                                    <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="eventDate" id="eventDate" placeholder="Event Date"/>
-                                    </div>
-                                    
-                                    <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="description" id="description" placeholder="Description"/>
-                                    </div>
-                                    
-                       
-                                     <%--<div class="6u 12u$(xsmall)">
-                                        <div class="select-wrapper" >
-                                            <select  id="timeslot" name="timeslot">
-                                                <option value="">-Event Time-</option>
-                                                <option type="1" value="${court.timeslot}">8  AM</option>
-                                                <option type="2" value="${court.timeslot}">10 AM</option>
-                                                <option type="3" value="${court.timeslot}">12 PM</option>
-                                                <option type="4" value="${court.timeslot}">2  PM</option>
-                                                <option type="5" value="${court.timeslot}">4  PM</option>
-                                                <option type="6" value="${court.timeslot}">6  PM</option>
-                                                <option type="7" value="${court.timeslot}">8  PM</option>                                                
-                                            </select>
-                                        </div>
-                                    </div>--%>
-                                          
                                     <div class="6u 12u$">
                                         <ul class="actions">
                                             <li><input type="submit" class="special" value="Add New Event"/></li>
