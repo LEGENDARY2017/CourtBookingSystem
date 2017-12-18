@@ -59,7 +59,7 @@
                                 <img src="images/event.png"/>                                
                             </span>
                             <ul class="actions">
-                                <li> <a href="#" class="button special">Event</a></li>                                       
+                                <li> <a href="${pageContext.request.contextPath}/EventListUser" class="button special">Event</a></li>                                       
                             </ul>
                         </li>                        
                     </ul>

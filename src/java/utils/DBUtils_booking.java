@@ -166,17 +166,14 @@ public class DBUtils_booking {
     }
 
     public static void updateBooking(Connection conn, Booking booking) throws SQLException {
-        String sql = "Update Booking set courtid =?, username=?, staffid=?, dateBook=?, start=?, end=?, feedback=? where bookingid=? ";
+        String sql = "Update Booking set dateBook=?, start=?, end=? where bookingid=? ";
 
         PreparedStatement pstm = conn.prepareStatement(sql);
 
-        pstm.setString(1, booking.getCourtid());
-        pstm.setString(2, booking.getUsername());
-        pstm.setString(3, booking.getStaffid());
-        pstm.setString(4, booking.getDateBook());
-        pstm.setString(5, booking.getStart());
-        pstm.setString(6, booking.getEnd());
-        pstm.setString(7, booking.getFeedback());
+        pstm.setString(1, booking.getDateBook());
+        pstm.setString(2, booking.getStart());
+        pstm.setString(3, booking.getEnd());
+        pstm.setString(4, booking.getBookingid());
         pstm.executeUpdate();
     }
 

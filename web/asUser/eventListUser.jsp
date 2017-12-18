@@ -1,7 +1,8 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
-    Document   : userList.jsp
-    Created on : Nov 28, 2017, 9:13:21 AM
-    Author     : yanaramli22
+    Document   : index
+    Created on : 21-Nov-2017, 00:47:26
+    Author     : nsyhd
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,6 +10,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Statement"%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,19 +29,16 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-         <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
     </head>
 
 
-
-    <body class="landing">
+ <body class="landing">
 
         <jsp:include page="headerAdmin.jsp"></jsp:include>
 
             <article id="main">
                 <header>
-                    <h2>List of Booking</h2>
+                    <h2>List of Event</h2>
                     <p></p>
                 </header>
                 <section class="wrapper style5">
@@ -47,44 +46,42 @@
 
                         <section>
                             <div class="table-wrapper">
-                            
-                                
                                 <table table="event" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Booking id</th>
-                                            <th>Court id</th>
-                                            <th>Username</th>
-                                            <th>Staff ID</th>
-                                            <th>Date Book</th>
+                                            <th>Event ID</th>
+                                            <th>Event Organizer</th>
+                                            <th>Event Name</th>
+                                            <th>Date</th>
                                             <th>Start Time</th>
                                             <th>End Time</th>
+                                            <th>Description</th>
+                                            <th>Court ID</th>
+                                            <th>Staff ID</th>
                                         </tr>
 
                                     </thead>
-                                <c:forEach items="${BookingList}" var="booking" >
+                                <c:forEach items="${EventList}" var="event" >
                                     <tbody>
 
                                         <tr>
-                                            <td>${booking.bookingid}</td>
-                                            <td>${booking.courtid}</td>
-                                            <td>${booking.username}</td>
-                                            <td>${booking.staffid}</td>
-                                            <td>${booking.dateBook}</td>
-                                            <td>${booking.start}</td>
-                                            <td>${booking.end}</td>
+                                            <td>${event.eventid}</td>
+                                            <td>${event.organizer}</td>
+                                            <td>${event.name}</td>
+                                            <td>${event.eventDate}</td>
+                                            <td>${event.startTime}</td>
+                                            <td>${event.endTime}</td>
+                                            <td>${event.description}</td>
+                                            <td>${event.courtid}</td>
+                                            <td>${event.staffid}</td>
 
-                                            <td>
-                                                <a href="EditBooking?bookingid=${booking.bookingid}" class="button ">Edit</a>
-                                                <a href="DeleteBooking?bookingid=${booking.bookingid}" class="button ">Delete</a>
-                                            </td>
                                         </tr>
 
 
                                     </tbody>
                                 </c:forEach>
                             </table>
-                            
+
                         </div>
 
                     </section>
