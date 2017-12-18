@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: utmcourt
+-- Host: 127.0.0.1    Database: utmcourt
 -- ------------------------------------------------------
 -- Server version	5.7.20-log
 
@@ -17,9 +17,7 @@
 
 --
 -- Table structure for table `admin`
-
-create database if not exists utmcourt;
-use utmcourt;
+--
 
 DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -57,8 +55,7 @@ CREATE TABLE `booking` (
   `username` varchar(10) NOT NULL,
   `staffid` varchar(10) NOT NULL,
   `dateBook` date NOT NULL,
-  `start` int NOT NULL,
-  `end` int NOT NULL,
+  `timeslot` varchar(50) NOT NULL,
   `feedback` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`bookingid`),
   KEY `courtid` (`courtid`),
@@ -89,6 +86,8 @@ DROP TABLE IF EXISTS `court`;
 CREATE TABLE `court` (
   `courtid` varchar(3) NOT NULL,
   `courtType` varchar(45) NOT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `statusDesc` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`courtid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -99,6 +98,7 @@ CREATE TABLE `court` (
 
 LOCK TABLES `court` WRITE;
 /*!40000 ALTER TABLE `court` DISABLE KEYS */;
+INSERT INTO `court` VALUES ('C01','PINGPONG','OPEN','-'),('C02','BADMINTON','OPEN','-'),('C03','VOLLEYBALL','OPEN','-');
 /*!40000 ALTER TABLE `court` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,14 +110,16 @@ DROP TABLE IF EXISTS `event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `event` (
-  `eventid` int(5) NOT NULL AUTO_INCREMENT,
-  `timeslot` varchar(50) NOT NULL,
-  `courtid` varchar(3) NOT NULL,
-  `staffid` varchar(10) NOT NULL,
+  `eventid` varchar(5) NOT NULL,
+  `organizer` varchar(45) DEFAULT NULL,
   `name` varchar(45) NOT NULL,
-  `eventDate` date NOT NULL,
+  `eventDate` varchar(15) NOT NULL,
+  `startTime` varchar(45) DEFAULT NULL,
+  `endTime` varchar(45) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`eventid`,`timeslot`),
+  `courtid` varchar(5) DEFAULT NULL,
+  `staffid` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`eventid`),
   KEY `staffid` (`staffid`),
   KEY `courtid` (`courtid`),
   CONSTRAINT `event_ibfk_1` FOREIGN KEY (`staffid`) REFERENCES `admin` (`staffid`),
@@ -131,6 +133,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
+INSERT INTO `event` VALUES ('E01','PERSAKA','SOFKOM','2018-12-12','0800','1200','FC ONLY','C01','A01'),('E02','PEKA','KASUF','2017-05-12','1300','1800','FKA ONLY','C02','A02');
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,11 +145,11 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
+  `username` varchar(45) NOT NULL,
+  `password` varchar(10) NOT NULL,
   `name` varchar(50) NOT NULL,
   `matricNo` varchar(9) NOT NULL,
-  `username` varchar(45) NOT NULL,
   `faculty` varchar(10) NOT NULL,
-  `password` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `contactNo` varchar(11) NOT NULL,
   PRIMARY KEY (`username`)
@@ -159,6 +162,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('aina','aina','Aina Yasmin ','A15CS0125','FBME','aina@gmail.com','01324876544'),('amy','amy','Amylia Syazwani binti Ahamad Tamizi','A15CS0010','FC','amylia07@gmail.com','01987601632'),('yana','yana','Nur Liyana binti Ramli','A15CS0132','FKA','yana@gmail.com','01234567812');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -171,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-29 21:30:08
+-- Dump completed on 2017-12-19  0:12:53
