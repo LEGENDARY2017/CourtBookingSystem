@@ -22,71 +22,130 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
+
+        <style>
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+                background-color: #E0FFFF;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
+
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+
+
+            }
+        </style>
+
     </head>
     <body class="landing">
 
-        <!-- Wrapper -->
-        <div id="page-wrapper">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
 
-            <!-- Header -->
-            <header id="header" class="alt">
-                <h1><a href="homeview.jsp">UTM Court Booking</a></h1>
-                <nav id="nav">
-                    <ul>
-                        <li class="special">
-                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                            <div id="menu">
-                                <ul>
-                                    <li><a href="homeview.jsp">Home</a></li>
-                                    <li><a href="schedule.jsp">Schedule</a></li>
-                                    <li><a href="event.jsp">Event</a></li>
-                                    <li><a href="history/reportType.jsp">History</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 class="major" align="center">ADD ADMIN</h3>
+                <form method="post" action="${pageContext.request.contextPath}/createAdmin">
 
-            <article id="main">
-                <header>
-                    <h2>ADD ADMIN</h2>
-                </header>
-                <section class="wrapper style5">
-                    <div class="inner">
 
-                        <section>
-                            <form action="${pageContext.request.contextPath}/createAdmin" method="post">
-                                <div class="row uniform">  
-                                    <div class="4u 12u$(xsmall)">
-                                        <input type="text" name="staffid" id="staffid" placeholder="Staff ID"/>
-                                    </div>
-                                    <div class="4u 12u$(xsmall)">
-                                        <input type="text" name="name" id="name" placeholder="Full Name"/>
-                                    </div>
-                                    <div class="4u 12u$(xsmall)">
-                                        <input type="text" name="password" id="password" placeholder="Password"/>
-                                    </div>
-                                        <input type="email" name="email" id="email" placeholder="Email"/>
-                                    </div>
-                                    
-                                    <div class="4u 12u$(xsmall)">
-                                        <input type="text" name="contactNo" id="contactNo" placeholder="Contact Number"/>
-                                    </div>
-                                   
-                                    <div class="12u 12u$">
-                                        <ul class="actions">
-                                            
-                                            <li><input type="submit" class="fit special" value="Add New Admin"/></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
-                        </section>
+                    <div class="row uniform">  
+                        <div class="6u 12u(xsmall)">
+                            <label for="staffID">Staff ID</label>
+                            <input type="text" name="staffid" id="staffid" required />
+                        </div>
 
+                        <div class="6u 12u(xsmall)">
+                            <label for="name">Full Name</label>
+                            <input type="text" name="name" id="name" required />                           
+                        </div>
+
+                        <div class="6u 12u$(xsmall)">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" required />                            
+                        </div>
+
+                        <div class="6u 12u$(xsmall)">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required />   
+                        </div>
+
+                        <div class="6u 12u$(xsmall)">
+                            <label for="contactNo">Contact Number</label>
+                            <input type="text" name="contactNo" id="contactNo" required />
+                        </div>
                     </div>
-                </section>
-            </article>
 
+                    <br>
+                    <div class="12u">
+                        <ul class="actions">
+                            <li><input type="submit" value="Add New Admin" class="fit special" /></li>
+                            <li><input type="reset"  value="Reset" class="special"/></li>
+                        </ul>
+                    </div>
+
+                </form>
+
+            </div>
+        </div> 
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        
     </body>
 </html>

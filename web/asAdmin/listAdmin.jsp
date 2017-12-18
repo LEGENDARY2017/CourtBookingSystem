@@ -67,7 +67,7 @@
                                             <td>${admin.contactNo}</td>
 
                                             <td>
-                                                    <a href="EditAdmin?staffid=${admin.staffid}">Edit</a>
+                                                <button id="myBtn1" class="button" >Edit</button>
                                                     <a href="DeleteAdmin?staffid=${admin.staffid}">Delete</a>
                                             </td>
                                         </tr>
@@ -77,7 +77,12 @@
                                 </c:forEach>
                             </table>
 
-                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/createAdmin" >Add Admin </a>                       
+                            <ul class="actions">
+                                <li><button id="myBtn" class="button">Add Admin</button></li>   
+                            </ul>   
+
+                            <jsp:include page="addAdmin.jsp"></jsp:include>
+                            <jsp:include page="EditAdmin?staffid=${admin.staffid}"></jsp:include>
 
                         </div>
 

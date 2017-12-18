@@ -21,10 +21,12 @@
                         <li><a href="eventAdmin.jsp">Event</a></li>
                         <li><a href="adminHistory.jsp">History</a></li>
                         <li><a href="manage.jsp">Manage System</a></li>   
-                        <li><a href="login.jsp">Logout</a></li>   
+                        <li><a href="LogoutServlet">Logout</a></li>   
                     </ul>
                 </div>
             </li>
         </ul>
     </nav>
+                        
+                        
 </header>

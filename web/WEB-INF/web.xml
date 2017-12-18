@@ -20,6 +20,10 @@
         <servlet-name>UpdateEventServlet</servlet-name>
         <servlet-class>servlet.manageEvent.UpdateEventServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlet.LogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateCourtServlet</servlet-name>
         <url-pattern>/CreateCourtServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>UpdateEventServlet</servlet-name>
         <url-pattern>/UpdateEventServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
