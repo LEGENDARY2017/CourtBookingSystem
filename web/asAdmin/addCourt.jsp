@@ -56,20 +56,31 @@
                     <div class="inner">
 
                         <section>
-                            <form method="POST" action="${pageContext.request.contextPath}/createCourt">
+                            <form action="${pageContext.request.contextPath}/CreateCourt" method="post">
                                 <div class="row uniform">    
-                                    <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="courtid" value="${court.courtid}" placeholder="Court ID"/>
+                                    <div class="4u 12u$(xsmall)">
+                                        <input type="text" name="courtid" id="courtid" placeholder="Court ID"/>
                                     </div>
                                      <div class="6u 12u$(xsmall)">
                                         <div class="select-wrapper" >
-                                            <select  id="courttype" name="courttype">
+                                            <select  name="courtType">
                                                 <option value="">-Type of court-</option>
-                                                <option type="B" value="${court.courtType}">Badminton Court</option>
-                                                <option type="P" value="${court.courtType}">Ping Pong Court</option>
-                                                <option type="V" value="${court.courtType}">VolleyBall Court</option>
+                                                <option value="Badminton">Badminton Court</option>
+                                                <option value="PingPong">Ping Pong Court</option>
+                                                <option value="VolleyBall">VolleyBall Court</option>
                                             </select>
                                         </div>
+                                    </div>
+                                     <div class="6u 12u$(xsmall)">
+                                        <div class="select-wrapper" >
+                                            <select  name="status">
+                                                <option value="open">Open</option>
+                                                <option value="close">Close</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="4u 12u$(xsmall)">
+                                        <input type="text" name="statusDesc" id="statusDesc" placeholder="Status Description"/>
                                     </div>
                                                                        
                                     

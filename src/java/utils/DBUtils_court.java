@@ -12,37 +12,39 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.CourtDetail;
+import beans.Court;
 /**
  *
  * @author Lenovo
  */
 public class DBUtils_court {
     
-    public static List<CourtDetail> queryCourt(Connection conn) throws SQLException {
-        String sql = "Select a.courtid, a.courtType, a.date, a.timeslot, a.staffid from court a ";
+    
+       public static List<Court> queryCourt(Connection conn) throws SQLException {
+        String sql = "Select * from court  ";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
         ResultSet rs = pstm.executeQuery();
-        List<CourtDetail> list = new ArrayList<CourtDetail>();
+        List<Court> list = new ArrayList<>();
         while (rs.next()) {
             String courtid = rs.getString("courtid");
             String courtType = rs.getString("courtType");
-            String timeslot = rs.getString("timeslot");
-            
-            CourtDetail court = new CourtDetail();
+            String status = rs.getString("status");
+            String statusDesc = rs.getString("statusDesc");
+            Court court = new Court();
             court.setCourtid(courtid);
             court.setCourtType(courtType);
-            court.setTimeslot(timeslot);
-                       
+            court.setStatus(status);
+            court.setStatusDesc(statusDesc);
+            
             list.add(court);
         }
         return list;
     }
  
-     public static CourtDetail findCourt(Connection conn, String courtid) throws SQLException {
-        String sql = "Select a.courtid, a.courtType, a.timeslot, from court a where a.courtid=?";
+    public static Court findCourt(Connection conn, String courtid) throws SQLException {
+        String sql = "Select * from court a where a.courtid=?";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setString(1, courtid);
@@ -51,21 +53,36 @@ public class DBUtils_court {
  
         while (rs.next()) {
             String courtType = rs.getString("courtType");
-            CourtDetail court = new CourtDetail(courtid, courtType);
+            String status = rs.getString("status");
+            String statusDesc = rs.getString("statusDesc");
+            Court court = new Court(courtid, courtType, status, statusDesc);
             return court;
         }
         return null;
     }
  
-
-    public static void insertCourt(Connection conn, CourtDetail court) throws SQLException {
-        String sql = "Insert into court(courtid, courtType) values (?,?)";
+    public static void updateCourt(Connection conn, Court court) throws SQLException {
+        String sql = "Update court set courtType=? , status =? , statusDesc=? where courtid=? ";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        pstm.setString(1, court.getCourtType());
+        pstm.setString(2, court.getStatus());
+        pstm.setString(3, court.getStatusDesc());
+        pstm.setString(4, court.getCourtid());
+        pstm.executeUpdate();
+    }
+ 
+    public static void insertCourt(Connection conn, Court court) throws SQLException {
+        String sql = "Insert into court(courtid, courtType, status, statusDesc) values (?,?,?,?)";
  
         PreparedStatement pstm = conn.prepareStatement(sql);
  
         pstm.setString(1, court.getCourtid());
         pstm.setString(2, court.getCourtType());
-         
+        pstm.setString(3, court.getStatus());
+        pstm.setString(4, court.getStatusDesc());
+ 
         pstm.executeUpdate();
     }
  
@@ -78,5 +95,5 @@ public class DBUtils_court {
  
         pstm.executeUpdate();
     }
-    
+ 
 }

@@ -55,7 +55,7 @@
                                     </span>
                                     <br>
                                     <ul class="actions">
-                                        <li><a href="addCourt.jsp" class="button special">Manage Court</a></li>                                       
+                                        <li><a href="${pageContext.request.contextPath}/CourtList"  class="button special">Manage Court</a></li>                                       
                                     </ul>
                                 </li>                           
                                 <li>

@@ -1,8 +1,14 @@
 <%-- 
-    Document   : courtAdmin
+    Document   : userList.jsp
     Created on : Nov 28, 2017, 9:13:21 AM
-    Author     : Lenovo
+    Author     : yanaramli22
 --%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,6 +27,8 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
+
+
     </head>
 
 
@@ -31,7 +39,7 @@
 
             <article id="main">
                 <header>
-                    <h2>Court</h2>
+                    <h2>List of Court</h2>
                     <p></p>
                 </header>
                 <section class="wrapper style5">
@@ -44,26 +52,32 @@
                                         <tr>
                                             <th>Court ID</th>
                                             <th>Court Type</th>
-                                            <th>Action</th>
+                                            <th>Status</th>
+                                            <th>Description</th>
                                         </tr>
 
                                     </thead>
-                                    <c:forEach items="${CourtList}" var="court" >
+                                <c:forEach items="${CourtList}" var="court" >
                                     <tbody>
-                                    
-                                    <td>${court.courtid}</td>
-                                    <td>${court.courtType}</td>
-                                    <td>
-                                        <a href="EditUser?username=${user.username}">Edit</a>
-                                        <a href="DeleteUser?username=${user.username}">Delete</a>
-                                    </td>
+
+                                        <tr>
+                                            <td>${court.courtid}</td>
+                                            <td>${court.courtType}</td>
+                                            <td>${court.status}</td>
+                                            <td>${court.statusDesc}</td>
+
+                                            <td>
+                                                    <a href="EditCourt?courtid=${court.courtid}">Edit</a>
+                                                    <a href="DeleteCourt?courtid=${court.courtid}">Delete</a>
+                                            </td>
+                                        </tr>
+
+
                                     </tbody>
-                                    </c:forEach>
+                                </c:forEach>
                             </table>
 
-
-                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/createCourt" >Add Court </a>                       
-
+                            <img src="../images/plus.png" alt/><a href="${pageContext.request.contextPath}/CreateCourt" >Add Court </a>                       
 
                         </div>
 

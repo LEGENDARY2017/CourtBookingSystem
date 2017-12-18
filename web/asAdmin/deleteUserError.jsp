@@ -40,13 +40,17 @@
 
             <article id="main">
                 <header>
-                    <h2>Delete Error</h2>
+                    <h2>Error</h2>
                     <p></p>
                 </header>
-                 <h3>Delete Product</h3>
+                <bodyy>
+                <center>
+                 <h3>Sorry!</h3>
     
                 <p style="color: red;">${errorString}</p>
-                <a href="UserList">User List</a>
+                <a href="asAdmin/manage.jsp">Back to manage system page</a>
+                </center>
+            </bodyy>
             </article>
         
     </body>

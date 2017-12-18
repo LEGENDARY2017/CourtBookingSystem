@@ -7,22 +7,25 @@ package beans;
 
 /**
  *
- * @author yanaramli22
+ * @author amyliaahamad
  */
-public class CourtDetail {
-
+public class Court {
     private String courtid;
     private String courtType;
-
-    public CourtDetail()
+    private String status;
+    private String statusDesc;
+    
+    public Court()
     {}
     
-    public CourtDetail(String courtid, String courtType)
+    public Court ( String courtid, String courtType, String status, String statusDesc )
     {
         this.courtid = courtid;
         this.courtType = courtType;
+        this.status = status;
+        this.statusDesc = statusDesc;
     }
-    
+
     public String getCourtid() {
         return courtid;
     }
@@ -39,7 +42,22 @@ public class CourtDetail {
         this.courtType = courtType;
     }
 
-    
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatusDesc() {
+        return statusDesc;
+    }
+
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
+    }
+
+    
+   
 }
- 
