@@ -28,7 +28,7 @@ import utils.DBUtils_event;
 import utils.MyUtils;
 
 
-@WebServlet(urlPatterns = { "/eventList" })
+@WebServlet(urlPatterns = { "/EventList" })
 public class eventListServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
@@ -54,7 +54,7 @@ public class eventListServlet extends HttpServlet {
         }
         // Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
-        request.setAttribute("eventList", list);
+        request.setAttribute("EventList", list);
          
         // Forward to /WEB-INF/views/productListView.jsp
         RequestDispatcher dispatcher = request.getServletContext()

@@ -55,7 +55,7 @@
                         <li>
                             <span>
                                 <img src="images/event.png" alt/><br>
-                                <a href="eventAdmin.jsp" class="button special">Event</a>   
+                                <a href="${pageContext.request.contextPath}/EventList"  class="button special">Event</a>   
                             </span>
                         </li>
                     </ul>

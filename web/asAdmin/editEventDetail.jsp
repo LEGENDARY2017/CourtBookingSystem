@@ -33,37 +33,49 @@
       <c:if test="${not empty user}">
                 <form action="${pageContext.request.contextPath}/EditEvent" method="post">
 
-               
+                                <input type="hidden" name="eventid" value="${event.eventid}" />
                                 <div class="row uniform">    
+                                    
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="eventid" value="${event.eventid}" placeholder="Event ID"/>
+                                        <label for="organizer" class="col-sm-sm">Organizer</label>
+                                        <input type="text" name="organizer" id="organizer" value="${event.organizer}"/>
                                     </div>
                                     
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="timeslot" value="${event.timeslot}" placeholder="Timeslot"/>
+                                        <label for="name" class="col-sm-sm">Event Name</label>
+                                        <input type="text" name="name" id="name" value="${event.name}"/>
                                     </div>
                                     
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="courtid" value="${event.courtid}" placeholder="Court ID"/>
+                                        <label for="eventDate" class="col-sm-sm">Event Date</label>
+                                        <input type="text" name="eventDate" id="eventDate" value="${event.eventDate}"/>
                                     </div>
                                     
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="staffid" value="${event.staffid}" placeholder="Staff ID"/>
-                                    </div>
-                                    
-                                    
-                                    <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="name" value="${event.name}" placeholder="Event Name"/>
+                                        <label for="startTime" class="col-sm-sm">Start Time</label>
+                                        <input type="text" name="startTime" id="startTime" value="${event.startTime}"/>
                                     </div>
                                     
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="eventDate" value="${event.eventDate}" placeholder="Event Date"/>
+                                        <label for="endTime" class="col-sm-sm">End Time</label>
+                                        <input type="text" name="endTime" id="endTime" value="${event.endTime}"/>
                                     </div>
                                     
                                     <div class="6u 12u$(xsmall)">
-                                        <input type="text" name="description" value="${event.description}" placeholder="Description"/>
+                                        <label for="description" class="col-sm-sm">Description</label>
+                                        <input type="text" name="description" id="description" value="${event.description}"/>
                                     </div>
-                             
+                                    
+                                    <div class="6u 12u$(xsmall)">
+                                        <label for="courtid" class="col-sm-sm">Court ID</label>
+                                        <input type="text" name="courtid" id="courtid" value="${event.courtid}"/>
+                                    </div>
+                                    
+                                    <div class="6u 12u$(xsmall)">
+                                        <label for="staffid" class="col-sm-sm">Staff ID</label>
+                                        <input type="text" name="staffid" id="staffid" value="${event.staffid}"/>
+                                    </div>
+                                    
                                     <div class="6u 12u$">
                                         <ul class="actions">
                                             <li><input type="submit" value="Submit" class="special" /></li>
